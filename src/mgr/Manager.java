@@ -42,7 +42,7 @@ public class Manager<T extends Manageable> {
     public void search() {
         String kwd = null;
         while (true) {
-            System.out.print("검색: ");
+            System.out.print("검색어: ");
             kwd = sc.next();
             if (kwd.contentEquals("end"))
                 break;
