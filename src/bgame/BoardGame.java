@@ -31,11 +31,11 @@ public class BoardGame implements Manageable {
 
     @Override
     public boolean matches(String kwd) {
-        if (kwd.contentEquals(name) ||
-            kwd.contentEquals(genre) ||
-            kwd.contentEquals(NumOfMember) ||
-            kwd.contentEquals(time) ||
-            kwd.contentEquals(level))
+        if (name.contains(kwd) ||
+            genre.contains(kwd) ||
+            NumOfMember.contains(kwd) ||
+            time.contains(kwd) ||
+            level.contains(kwd))
             return true;
         else
             return false;

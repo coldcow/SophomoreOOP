@@ -55,7 +55,11 @@ public class Main {
                 int totalprice = 0;
                 while(true) {
                     String m = sc.next();
-                    if(m == "0") break;
+                    if(DrinkMgr.find(m) == null) {
+                        System.out.println("존재하지 않는 음료입니다 다시 입력해주세요 :");
+                        continue;
+                    }
+                    if(m.equals("0")) break;
                     int mprice = DrinkMgr.find(m).price;
                     totalprice += mprice;
                 }
