@@ -1,11 +1,11 @@
-package mgr;
+package mng;
 
 import java.util.Scanner;
 
 public interface Manageable {
-	void read(Scanner scan);
+	void read(Scanner scanner);
 
 	void print();
 
-	boolean matches(String kwd);
+	boolean matches(String keyword);
 }
