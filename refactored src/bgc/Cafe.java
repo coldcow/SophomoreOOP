@@ -71,9 +71,12 @@ public class Cafe {
 						continue;
 					}
 
-					room.availability = false;
+					room.availability = true;
+					System.out.println("이용해주셔서 감사합니다. 안녕히가세요.");
 					break;
 				}
+				
+				break;
 
 			case 3:
 				System.out.println("1. 보드게임 대여 2. 음료 주문");
@@ -151,6 +154,8 @@ public class Cafe {
 				default:
 					break;
 				}
+				
+				break;
 
 			default:
 				break;
