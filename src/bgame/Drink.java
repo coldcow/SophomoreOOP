@@ -18,12 +18,14 @@ public class Drink implements Manageable {
 
     @Override
     public void print() {
-        System.out.format("[%s]\t <%s>\t %d원",type, name, price);
+        System.out.format("[%s]\t <%s>\t %d원", type, name, price);
         System.out.println();
     }
 
     @Override
     public boolean matches(String keyword) {
-        return (type.contains(keyword) || name.contains(keyword) || (price + "").contains(keyword));
+        return (type.contains(keyword) ||
+                name.contains(keyword) ||
+                (price + "").contains(keyword));
     }
 }

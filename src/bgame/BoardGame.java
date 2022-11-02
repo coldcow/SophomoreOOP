@@ -25,17 +25,17 @@ public class BoardGame implements Manageable {
 
     @Override
     public void print() {
-        System.out.format("[%s]  난이도 : %s\t%s\t%s\t%s",name,level,genre,NumOfMember,time);
+        System.out.format("[%s]  난이도 : %s\t%s\t%s\t%s", name, level, genre, NumOfMember, time);
         System.out.println();
     }
 
     @Override
     public boolean matches(String kwd) {
         if (name.contains(kwd) ||
-            genre.contains(kwd) ||
-            NumOfMember.contains(kwd) ||
-            time.contains(kwd) ||
-            level.contains(kwd))
+                genre.contains(kwd) ||
+                NumOfMember.contains(kwd) ||
+                time.contains(kwd) ||
+                level.contains(kwd))
             return true;
         else
             return false;

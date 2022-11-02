@@ -1,56 +1,49 @@
 package mgr;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import bgame.Main;
+
 public class Manager<T extends Manageable> {
-    static public Scanner sc = new Scanner(System.in);
-    public ArrayList<T> mList = new ArrayList<>();
+    public ArrayList<T> managees = new ArrayList<>();
 
-    public T find(String name) {
-        for (T p : mList) {
-            if (p.matches(name))
-                return p;
+    public void readAll(Scanner scanner, Factory<T> factory) {
+        while (scanner.hasNext()) {
+            T managee = factory.create();
+            managee.read(scanner);
+            managees.add(managee);
         }
-        return null;
-    }
-
-    public void readAll(String filename, Factory<T> fac) {
-        Scanner filein = null;
-        try {
-            filein = new Scanner(new File(filename));
-        } catch (FileNotFoundException e) {
-            System.out.println(e);
-            System.exit(0);
-        }
-        while (filein.hasNext()) {
-            T m = fac.create();
-            m.read(filein);
-            mList.add(m);
-            // m.print();
-        }
-        filein.close();
     }
 
     public void printAll() {
-        for (T p : mList)
-            p.print();
+        for (T managee : managees)
+            managee.print();
     }
 
     public void search() {
-        String kwd = null;
+        String searchWord = null;
+
         while (true) {
             System.out.print("검색어: ");
-            kwd = sc.next();
-            if (kwd.contentEquals("end"))
+            searchWord = Main.scanner.next();
+
+            if (searchWord.equals("end"))
                 break;
-            for (T m : mList) {
-                if (m.matches(kwd))
-                    m.print();
+
+            for (T managee : managees) {
+                if (managee.matches(searchWord))
+                    managee.print();
             }
         }
     }
 
+    public T find(String keyword) {
+        for (T managee : managees) {
+            if (managee.matches(keyword))
+                return managee;
+        }
+
+        return null;
+    }
 }
