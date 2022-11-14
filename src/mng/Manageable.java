@@ -3,9 +3,9 @@ package mng;
 import java.util.Scanner;
 
 public interface Manageable {
-	void read(Scanner scanner);
+    void read(Scanner scanner);
 
-	void print();
+    void print();
 
-	boolean matches(String keyword);
+    boolean matches(String keyword);
 }
