@@ -8,7 +8,7 @@ import mng.Manager;
 public class Cafe {
 	static Manager<BoardGame> BoardGameManager = new Manager<>();
 	Manager<Drink> DrinkManager = new Manager<>();
-	Manager<Room> RoomManager = new Manager<>();
+	static Manager<Room> RoomManager = new Manager<>();
 
 	void run() {
 		BoardGameManager.readAll(Main.openFile("boardgame.txt"), new Factory<BoardGame>() {
@@ -38,6 +38,13 @@ public class Cafe {
 
 			switch (menu) {
 			case 1:
+				
+				javax.swing.SwingUtilities.invokeLater(new Runnable() {
+					public void run() {
+						createAndShowGUI();
+					}
+				});
+//				
 				while (true) {
 					System.out.print("입장하실 방의 번호를 입력하세요: ");
 					String num = Main.scanner.next();
@@ -183,12 +190,16 @@ public class Cafe {
 
 	private static void createAndShowGUI() {
 		// Create and set up the window.
-		JFrame frame = new JFrame("BoardGameTableSelection");
+		JFrame frame = new JFrame("RoomSelection");
+//		JFrame frame = new JFrame("BoardGameTableSelection");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// Create and set up the content pane.
-		BoardGameTableSelection newContentPane = new BoardGameTableSelection();
+		RoomSelection newContentPane = new RoomSelection();
+//		BoardGameTableSelection newContentPane = new BoardGameTableSelection();
+		frame.setLocationRelativeTo(null); // 프레임을 화면 가운데에 배치
 		newContentPane.setOpaque(true); // content panes must be opaque
+		
 		frame.setContentPane(newContentPane);
 
 		// Display the window.

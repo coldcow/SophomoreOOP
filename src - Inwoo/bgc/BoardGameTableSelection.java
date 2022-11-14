@@ -14,16 +14,21 @@ import javax.swing.table.DefaultTableModel;
 
 import mng.Factory;
 
-public class BoardGameTableSelection extends JPanel implements ActionListener, ListSelectionListener {
+public class BoardGameTableSelection extends JFrame implements ActionListener, ListSelectionListener {
+// public class BoardGameTableSelection extends JPanel implements ActionListener, ListSelectionListener {
 	private static final long serialVersionUID = 1L;
 	JTable table = null;
 	JTextField edits[] = new JTextField[5];
 
 	public BoardGameTableSelection() {
-		super(new BorderLayout());
+		super("BoardGame");
+		// super(new BorderLayout());
+		
 		BoardGameTableInit();
 		JPanel pane = makeBottomPane();
 		add(pane, BorderLayout.PAGE_END);
+		setSize(800, 600);
+		setVisible(true);
 	}
 
 	void BoardGameTableInit() {
@@ -72,6 +77,7 @@ public class BoardGameTableSelection extends JPanel implements ActionListener, L
 			buttons[i].addActionListener(this);
 			bottom.add(buttons[i]);
 		}
+		setLocationRelativeTo(null);
 		pane.add(bottom);
 		return pane;
 	}
@@ -94,11 +100,11 @@ public class BoardGameTableSelection extends JPanel implements ActionListener, L
 	public void actionPerformed(ActionEvent e) {
 		DefaultTableModel data = (DefaultTableModel) (table.getModel());
 		if (e.getActionCommand().equals("Done")) {
-
+			System.out.println("저장 버튼 눌렀습니다.");
 		} else if (e.getActionCommand().equals("추가")) {
-
+			System.out.println("추가 버튼 눌렀습니다.");
 		} else if (e.getActionCommand().equals("삭제")) {
-
+			System.out.println("삭제 버튼 눌렀습니다.");
 		}
 	}
 }
