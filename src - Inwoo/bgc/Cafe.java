@@ -57,12 +57,12 @@ public class Cafe {
 						continue;
 					}
 
-					if (!room.availability) {
+					if (room.availability == 1) {
 						System.out.println("이미 사용중인 방입니다. 다시 입력해주세요.");
 						continue;
 					}
 
-					room.availability = false;
+					room.availability = 1;
 					break;
 				}
 
@@ -81,12 +81,12 @@ public class Cafe {
 						continue;
 					}
 
-					if (room.availability) {
+					if (room.availability == 0) {
 						System.out.println("이미 퇴장 처리된 방입니다. 다시 입력해주세요.");
 						continue;
 					}
 
-					room.availability = true;
+					room.availability = 0;
 					System.out.println("이용해주셔서 감사합니다. 안녕히가세요.");
 					break;
 				}

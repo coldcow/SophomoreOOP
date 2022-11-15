@@ -82,14 +82,51 @@ public class RoomSelection extends JPanel implements ActionListener, ListSelecti
 		// TODO Auto-generated method stub
 		String num = null;
 		num = event.getActionCommand();
+		JFrame jf = new JFrame();
+		jf.setLocation(700,400);
+        jf.setSize(380,180);
 		
 		if (num.equals("end")) {
 			System.exit(0);
 		}
 		
-		if (num.equals("3번방")) {
-			// . . ..
+		if (num.equals("1번방")) {
+			if(Cafe.RoomManager.find(num).availability == 1) {
+				JLabel label = new JLabel("사용할 수 없는 방입니다.");
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				jf.add(label);
+				jf.setVisible(true);
+				return;
+			}
 		}
+		if (num.equals("2번방")) {
+			if(Cafe.RoomManager.find(num).availability == 1) {
+				JLabel label = new JLabel("사용할 수 없는 방입니다.");
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				jf.add(label);
+				jf.setVisible(true);
+				return;
+			}
+		}
+		if (num.equals("3번방")) {
+			if(Cafe.RoomManager.find(num).availability == 1) {
+				JLabel label = new JLabel("사용할 수 없는 방입니다.");
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				jf.add(label);
+				jf.setVisible(true);
+				return;
+			}
+		}
+		if (num.equals("4번방")) {
+			if(Cafe.RoomManager.find(num).availability == 1) {
+				JLabel label = new JLabel("사용할 수 없는 방입니다.");
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				jf.add(label);
+				jf.setVisible(true);
+				return;
+			}
+		}
+		
 		
 		// txt 파일 확인 후 룸을 제대로 입력받았으면 파일에 입력하는 기능 추가해야함  
 		// . . . 

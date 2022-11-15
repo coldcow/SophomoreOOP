@@ -5,12 +5,13 @@ import java.util.Scanner;
 import mng.Manageable;
 
 public class Room implements Manageable {
-	int number;
-	boolean availability = true;
+	String number;
+	int availability;
 	
 	@Override
 	public void read(Scanner scanner) {
-		number = scanner.nextInt();
+		number = scanner.next();
+		availability = scanner.nextInt();
 	}
 	
 	@Override
@@ -20,6 +21,6 @@ public class Room implements Manageable {
 	
 	@Override
 	public boolean matches(String keyword) {
-		return (number + "").contentEquals(keyword);
+		return number.contentEquals(keyword);
 	}
 }

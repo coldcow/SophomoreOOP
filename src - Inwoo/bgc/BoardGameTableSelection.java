@@ -62,7 +62,7 @@ public class BoardGameTableSelection extends JFrame implements ActionListener, L
 			edits[i] = new JTextField("", 10);
 			center.add(edits[i]);
 		}
-		JButton editBtn = new JButton("저장");
+		JButton editBtn = new JButton("주문");
 		editBtn.setActionCommand("Done");
 		editBtn.addActionListener(this);
 		center.add(editBtn);
@@ -100,7 +100,7 @@ public class BoardGameTableSelection extends JFrame implements ActionListener, L
 	public void actionPerformed(ActionEvent e) {
 		DefaultTableModel data = (DefaultTableModel) (table.getModel());
 		if (e.getActionCommand().equals("Done")) {
-			System.out.println("저장 버튼 눌렀습니다.");
+			System.out.println("주문 버튼 눌렀습니다.");
 		} else if (e.getActionCommand().equals("추가")) {
 			System.out.println("추가 버튼 눌렀습니다.");
 		} else if (e.getActionCommand().equals("삭제")) {
