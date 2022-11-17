@@ -1,15 +1,18 @@
 package bgc;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import mng.Manageable;
+import mng.Manager;
 
 public class User implements Manageable {
     String identifier;
     String password;
     int age;
     int mileage = 0;
+
     @Override
     public void read(Scanner scanner) {
         identifier = scanner.next();
@@ -28,11 +31,11 @@ public class User implements Manageable {
         return identifier.equals(keyword);
     }
 
-    public void signUp(File file, String newId, String newPassword, int newAge) {
-        try{
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file,true));
+    public void createUser(File file, String newId, String newPassword, int newAge) {
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
 
-            if(file.isFile() && file.canWrite()){
+            if (file.isFile() && file.canWrite()) {
 
                 bufferedWriter.write(newId + " ");
                 bufferedWriter.write(newPassword + " ");
@@ -42,8 +45,31 @@ public class User implements Manageable {
 
                 bufferedWriter.close();
             }
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.out.println(e);
         }
+    }
+
+    void updateUser(Manager<User> userManager, File file) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false))) {
+            for (User user : userManager.managees) {
+                if (file.isFile() && file.canWrite()) {
+
+                    bufferedWriter.write(user.identifier + " ");
+                    bufferedWriter.write(user.password + " ");
+                    bufferedWriter.write(user.age + " ");
+                    bufferedWriter.write(toString(user.mileage));
+                    bufferedWriter.newLine();
+
+                    bufferedWriter.close();
+                }
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    private String toString(int mileage) {
+        return String.valueOf(mileage);
     }
 }

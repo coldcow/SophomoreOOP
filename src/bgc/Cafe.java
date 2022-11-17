@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import mng.Factory;
 import mng.Manager;
 
+import java.util.HashMap;
+
 public class Cafe {
     static Manager<BoardGame> BoardGameManager = new Manager<>();
     Manager<Drink> DrinkManager = new Manager<>();
@@ -14,6 +16,7 @@ public class Cafe {
     int menuState = 0;
     int menu = 0;
     boolean condition = false;
+    HashMap<String, Integer> orderList = null;
     User user = new User();
     Room room = null;
     Order order = null;
@@ -97,7 +100,7 @@ public class Cafe {
                         System.out.print("나이 : ");
                         int newAge = Main.scanner.nextInt();
 
-                        user.signUp(Main.openJustFile("user.txt"), newId, newPassword, newAge);
+                        user.createUser(Main.openJustFile("user.txt"), newId, newPassword, newAge);
                         break;
                     //회원가입 종료
                     default:
@@ -155,7 +158,6 @@ public class Cafe {
                                 continue;
                             }
 
-                            room.availability = true;
                             System.out.format("1. 결제 2. 적립금 사용 (사용가능 적립금 : %d원)", payment.showMileage(user));
                             if (user.age < 20) {
                                 totalPrice -= 3000;
@@ -165,21 +167,35 @@ public class Cafe {
                                 case 1:
                                     System.out.println("총 결제금액은 : " + totalPrice + "입니다.");
                                     payment.giveMileage(user, totalPrice);
+                                    order.addOrderToFile(Main.openJustFile("order.txt"));
+                                    menuState = 0;
+                                    System.out.println("이용해주셔서 감사합니다. 안녕히가세요.");
+                                    room.availability = true;
                                     break;
                                 case 2:
+                                    if (payment.showMileage(user) == 0) {
+                                        System.out.print("사용가능한 마일리지가 없습니다.");
+                                        continue;
+                                    }
                                     System.out.print("사용하실 적립금 액수를 입력해주세요 : ");
-                                    totalPrice = payment.useMileage(user, totalPrice, Main.scanner.nextInt());
-                                    System.out.println("총 결제금액은 : " + totalPrice + "입니다.");
+                                    int finalTotalPrice = payment.useMileage(user, totalPrice, Main.scanner.nextInt());
+                                    if (finalTotalPrice == totalPrice) {
+                                        System.out.println("마일리지가 부족합니다");
+                                        continue;
+                                    }
+                                    user.updateUser(UserManager, Main.openJustFile("user.txt"));
+                                    System.out.println("총 결제금액은 : " + finalTotalPrice + "입니다.");
+                                    order.addOrderToFile(Main.openJustFile("order.txt"));
+                                    menuState = 0;
+                                    System.out.println("이용해주셔서 감사합니다. 안녕히가세요.");
+                                    room.availability = true;
                                     break;
                                 default:
                                     System.out.println("지정된 메뉴가 없습니다 다시 시도해 주세요");
-                                    break;
+                                    continue;
                             }
-
-                            order.addOrderToFile(Main.openJustFile("order.txt"));
-                            menuState = 0;
-                            System.out.println("이용해주셔서 감사합니다. 안녕히가세요.");
                             break;
+
                         }
 
                         break;
@@ -249,7 +265,8 @@ public class Cafe {
                             // 음료 주문 종료
 
                             default:
-                                break;
+                                System.out.println("지정된 메뉴가 없습니다 다시 시도해 주세요");
+                                continue;
                         }
 
                         break;
@@ -281,7 +298,17 @@ public class Cafe {
                         break;
                     // 검색 종료, 검색 메뉴(차차상위 메뉴) 종료
                     case 4:
-                        order.getOrderFromFile(Main.openFile("order.txt"));
+                        orderList = order.getOrderFromFile(Main.openFile("order.txt"));
+                        HashMap<String, Integer> boardGameMap = new HashMap<>();
+                        HashMap<String, Integer> DrinkMap = new HashMap<>();
+
+                        for (String order : orderList.keySet()) {
+                            if (order.equals(BoardGameManager.find(order).name)) {
+                                boardGameMap.put(order, orderList.get(order));
+                            } else {
+                                DrinkMap.put(order, orderList.get(order));
+                            }
+                        }
                         break;
                     default:
                         break;

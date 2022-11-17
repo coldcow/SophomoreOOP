@@ -46,5 +46,4 @@ public class Manager<T extends Manageable> {
 
         return null;
     }
-
 }

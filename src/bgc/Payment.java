@@ -9,7 +9,7 @@ public class Payment {
     public int useMileage(User user, int total, int usingMileage) {
         int PaymentPrice = 0;
         if (user.mileage < usingMileage) {
-            System.out.println("마일리지가 부족합니다");
+            return total;
         } else {
             PaymentPrice = total - usingMileage;
             user.mileage -= usingMileage;
