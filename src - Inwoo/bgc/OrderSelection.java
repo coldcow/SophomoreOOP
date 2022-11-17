@@ -40,7 +40,7 @@ public class OrderSelection extends JFrame{
 				});
 				pane.add(jbDrink); // pane이라는 패널에 jb라는 버튼 추가
 
-				JButton jbEnd = new JButton("end");	jbEnd.addActionListener(event -> {
+				JButton jbEnd = new JButton("퇴실");	jbEnd.addActionListener(event -> {
 					System.exit(0);
 				});
 				
@@ -58,8 +58,11 @@ public class OrderSelection extends JFrame{
 		String order = null;
 		order = event.getActionCommand();
 		
-		if (order.equals("end")) {
-			System.exit(0);
+		if (order.equals("퇴실")) {
+			new CheckOut();
+			setVisible(false);
+			setSize(0, 0);
+			// System.exit(0);
 		}
 		
 		if (order.equals("보드게임 주문")) {
