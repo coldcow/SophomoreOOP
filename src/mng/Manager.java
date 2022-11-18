@@ -1,5 +1,9 @@
 package mng;
 
+<<<<<<< Updated upstream
+=======
+import java.io.File;
+>>>>>>> Stashed changes
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -15,6 +19,14 @@ public class Manager<T extends Manageable> {
             managees.add(managee);
         }
     }
+<<<<<<< Updated upstream
+=======
+    
+    public void writeAll(File file) {
+    	for (T managee : managees)
+    		managee.write(file);
+    }
+>>>>>>> Stashed changes
 
     public void printAll() {
         for (T managee : managees)

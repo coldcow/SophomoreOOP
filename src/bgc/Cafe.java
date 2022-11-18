@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import mng.Factory;
 import mng.Manager;
 
+<<<<<<< Updated upstream
 import java.util.*;
 
 public class Cafe {
@@ -24,23 +25,48 @@ public class Cafe {
 
 	void run() {
 		BoardGameManager.readAll(Main.openFile("boardgame.txt"), new Factory<BoardGame>() {
+=======
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
+
+public class Cafe {
+	static Manager<BoardGame> boardGameManager = new Manager<>();
+	Manager<Drink> drinkManager = new Manager<>();
+	static Manager<Room> roomManager = new Manager<>();
+	Manager<User> userManager = new Manager<>();
+
+	void run() {
+		boardGameManager.readAll(Main.scanFile("boardgame.txt"), new Factory<BoardGame>() {
+>>>>>>> Stashed changes
 			public BoardGame create() {
 				return new BoardGame();
 			}
 		});
 
+<<<<<<< Updated upstream
 		DrinkManager.readAll(Main.openFile("drink.txt"), new Factory<Drink>() {
+=======
+		drinkManager.readAll(Main.scanFile("drink.txt"), new Factory<Drink>() {
+>>>>>>> Stashed changes
 			public Drink create() {
 				return new Drink();
 			}
 		});
 
+<<<<<<< Updated upstream
 		RoomManager.readAll(Main.openFile("room.txt"), new Factory<Room>() {
+=======
+		roomManager.readAll(Main.scanFile("room.txt"), new Factory<Room>() {
+>>>>>>> Stashed changes
 			public Room create() {
 				return new Room();
 			}
 		});
 
+<<<<<<< Updated upstream
 		// 로그인 메뉴(최상위 메뉴) 시작
 		while (true) {
 			do {
@@ -49,17 +75,76 @@ public class Cafe {
 						return new User();
 					}
 				});
+=======
+		userManager.readAll(Main.scanFile("user.txt"), new Factory<User>() {
+			public User create() {
+				return new User();
+			}
+		});
+
+		// 키오스크 시작
+		while (true) {
+			int menu = 0;
+			boolean condition = false;
+
+			HashMap<String, Integer> orderList = null;
+
+			User user = new User();
+			Room room = new Room();
+			BoardGame boardGame = new BoardGame();
+			Drink drink = new Drink();
+			Order order = new Order(null);
+
+			String userIdentifier = null;
+			String userPassword = null;
+			int userAge = 0;
+			String roomNumber = null;
+			String boardGameInformation = null;
+			String drinkName = null;
+			int cost = 0;
+			int mileageToUse = 0;
+			
+			System.out.println("키오스크 종료를 원하시면 0을 입력해주세요.");
+			menu = Main.scanner.nextInt();
+
+			if (menu == 0) {
+				try {
+					BufferedWriter temporary = new BufferedWriter(new FileWriter(new File("user.txt"), false));
+					temporary.write("");
+					temporary.close();
+				}
+
+				catch (IOException exception) {
+					exception.printStackTrace();
+				}
+
+				userManager.writeAll(new File("user.txt"));
+				break;
+			}
+			// 계정 시작
+			while (true) {
+				if (condition)
+					break;
+>>>>>>> Stashed changes
 
 				System.out.println("1. 로그인 2. 회원가입");
 				System.out.print("메뉴를 입력하세요: ");
 				menu = Main.scanner.nextInt();
 
 				switch (menu) {
+<<<<<<< Updated upstream
 				// 로그인 시작
 				case 1:
 					while (true) {
 						System.out.print("아이디를 입력하세요: ");
 						user = UserManager.find(Main.scanner.next());
+=======
+				// 계정-로그인 시작
+				case 1:
+					while (true) {
+						System.out.print("아이디를 입력하세요: ");
+						user = userManager.find(Main.scanner.next());
+>>>>>>> Stashed changes
 
 						if (user == null) {
 							System.out.println("존재하지 않는 아이디입니다. 다시 입력해주세요.");
@@ -81,6 +166,7 @@ public class Cafe {
 							break;
 						}
 
+<<<<<<< Updated upstream
 						System.out.printf("비밀번호가 틀립니다. (%d회)\n", count);
 					}
 
@@ -131,6 +217,58 @@ public class Cafe {
 				if (numIn.equals("end"))
 					break;
 				room = RoomManager.find(numIn);
+=======
+						System.out.printf("비밀번호가 틀립니다. 다시 입력해주세요. (오류: %d회)\n", count);
+					}
+
+					break;
+				// 계정-로그인 종료
+				// 계정-회원가입 시작
+				case 2:
+					while (true) {
+						System.out.println("<뒤로가기 = 0>");
+						System.out.print("아이디: ");
+						userIdentifier = Main.scanner.next();
+
+						if (userIdentifier.equals("0"))
+							break;
+
+						if (userManager.find(userIdentifier) != null) {
+							System.out.println("해당 아이디가 이미 존재합니다. 다른 아이디를 입력하세요.");
+							continue;
+						}
+
+						System.out.print("비밀번호: ");
+						userPassword = Main.scanner.next();
+
+						System.out.print("나이 : ");
+						userAge = Main.scanner.nextInt();
+
+						user = new User();
+						user.read(userIdentifier, userPassword, userAge);
+						userManager.managees.add(user);
+						break;
+					}
+
+					break;
+				// 계정-회원가입 종료
+				default:
+					break;
+				}
+			}
+			// 계정 종료
+			/* 여기서 오류, 난 틀렸어... 뒤를 부탁해...
+			javax.swing.SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					createAndShowGUI();
+				}
+			});*/
+			// 입장 시작
+			while (true) {
+				System.out.print("입장하실 방의 번호를 입력하세요: ");
+				roomNumber = Main.scanner.next();
+				room = roomManager.find(roomNumber);
+>>>>>>> Stashed changes
 
 				if (room == null) {
 					System.out.println("존재하지 않는 방입니다. 다시 입력해주세요.");
@@ -138,14 +276,19 @@ public class Cafe {
 				}
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				if (!room.availability) {
 =======
 				if (room.availability == 1) {
+>>>>>>> Stashed changes
+=======
+				if (!room.availability) {
 >>>>>>> Stashed changes
 					System.out.println("이미 사용중인 방입니다. 다시 입력해주세요.");
 					continue;
 				}
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 				room.availability = false;
 =======
@@ -159,11 +302,23 @@ public class Cafe {
 			while (menuState != 1);
 			int totalPrice = 0;
 			while (menuState == 1) {
+=======
+				room.availability = false;
+				break;
+			}
+			// 입장 종료
+			// 메인 시작
+			cost = 0;
+			while (true) {
+				if (!condition)
+					break;
+>>>>>>> Stashed changes
 				System.out.println("1. 퇴장 2. 주문 3. 검색 4. 추천");
 				System.out.print("메뉴를 입력하세요: ");
 				menu = Main.scanner.nextInt();
 
 				switch (menu) {
+<<<<<<< Updated upstream
 				// 퇴장 시작
 				case 1:
 					while (true) {
@@ -239,12 +394,74 @@ public class Cafe {
 				// 퇴장 종료
 
 				// 주문 시작, 주문 메뉴(차차상위 메뉴) 시작
+=======
+				// 메인-퇴장 시작
+				case 1:
+					// 메인-퇴장-퇴장 시작
+					room.availability = true;
+					condition = false;
+					// 메인-퇴장-퇴장 종료
+					// 메인-퇴장-결제 시작
+					if (user.age < 20)
+						cost *= 0.9;
+					Payment.giveMileage(user, cost);
+
+					while (true) {
+						System.out.printf("1. 일반 결제 2. 적립금 사용 (사용 가능 적립금: %d원)", user.mileage);
+						System.out.print("메뉴를 입력하세요: ");
+						menu = Main.scanner.nextInt();
+
+						switch (menu) {
+						// 메인-퇴장-결제-일반 결제 시작
+						case 1:
+							order.addOrderToFile(Main.openFile("order.txt"));
+							break;
+						// 메인-퇴장-결제-일반 결제 종료
+						// 메인-퇴장-결제-적립금 사용 시작
+						case 2:
+							while (true) {
+								if (user.mileage == 0) {
+									System.out.println("적립된 마일리지가 없습니다.");
+									break;
+								}
+
+								System.out.print("사용할 마일리지를 입력하세요: ");
+								mileageToUse = Main.scanner.nextInt();
+
+								if (user.mileage < mileageToUse) {
+									System.out.println("마일리지가 부족합니다.");
+									continue;
+								}
+
+								Payment.useMileage(user, cost, mileageToUse);
+								break;
+							}
+
+							System.out.printf("%d마일리지가 성공적으로 사용되었습니다!\n", mileageToUse);
+							break;
+						// 메인-퇴장-결제-적립금 사용 종료
+						default:
+							System.out.println("지정된 메뉴가 없습니다 다시 시도해 주세요");
+							break;
+						}
+
+						System.out.printf("결제하실 금액은 총 %d원입니다.\n", cost);
+						break;
+					}
+					// 메인-퇴장-결제 종료
+
+					System.out.println("이용해주셔서 감사합니다.");
+					break;
+				// 메인-퇴장 종료
+				// 메인-주문 시작
+>>>>>>> Stashed changes
 				case 2:
 					System.out.println("1. 보드게임 대여 2. 음료 주문");
 					System.out.print("메뉴를 입력하세요: ");
 					menu = Main.scanner.nextInt();
 
 					switch (menu) {
+<<<<<<< Updated upstream
 					// 보드게임 대여 시작
 					case 1:
 						// System.out.println("이름 난이도(1~7) 장르 인원수 게임시간");
@@ -273,11 +490,26 @@ public class Cafe {
 								break;
 
 							BoardGame boardGame = BoardGameManager.find(Board);
+=======
+					// 메인-주문-보드게임 대여 시작
+					case 1:
+						boardGameManager.printAll();
+						System.out.print("대여하실 보드게임을 입력해주세요(end로 종료): ");
+
+						while (true) {
+							boardGameInformation = Main.scanner.next();
+
+							if (boardGameInformation.equals("end"))
+								break;
+
+							boardGame = boardGameManager.find(boardGameInformation);
+>>>>>>> Stashed changes
 
 							if (boardGame == null) {
 								System.out.println("존재하지 않는 보드게임입니다. 다시 입력해주세요.\n");
 								continue;
 							}
+<<<<<<< Updated upstream
 							order.orderedName.add(boardGame.name);
 							break;
 						}
@@ -295,12 +527,32 @@ public class Cafe {
 							Drink drink = DrinkManager.find(drinkName);
 
 							if (drinkName.equals("0"))
+=======
+
+							order.orderedName.add(boardGame.name);
+						}
+
+						System.out.println("보드게임이 대여되었습니다.");
+						break;
+					// 메인-주문-보드게임 대여 종료
+					// 메인-주문-음료 주문 시작
+					case 2:
+						drinkManager.printAll();
+						System.out.print("주문하실 음료수를 모두 입력해주세요(end로 종료): ");
+
+						while (true) {
+							drinkName = Main.scanner.next();
+							drink = drinkManager.find(drinkName);
+
+							if (drinkName.equals("end"))
+>>>>>>> Stashed changes
 								break;
 
 							if (drink == null) {
 								System.out.println("존재하지 않는 음료입니다. 다시 입력해주세요.");
 								continue;
 							}
+<<<<<<< Updated upstream
 							order.orderedName.add(drink.name);
 							totalPrice += drink.price;
 						}
@@ -319,12 +571,32 @@ public class Cafe {
 				// 주문 종료, 주문 메뉴(차차상위 메뉴) 종료
 
 				// 검색 시작, 검색 메뉴(차차상위 메뉴) 시작
+=======
+
+							order.orderedName.add(drink.name);
+							cost += drink.price;
+						}
+
+						System.out.println("음료가 주문되었습니다.");
+						break;
+					// 메인-주문-음료 주문 종료
+
+					default:
+						System.out.println("지정된 메뉴가 없습니다 다시 시도해 주세요");
+						break;
+					}
+
+					break;
+				// 메인-주문 종료
+				// 메인-검색 시작
+>>>>>>> Stashed changes
 				case 3:
 					System.out.println("1. 보드 게임 검색 2. 음료 검색");
 					System.out.print("메뉴를 입력하세요: ");
 					menu = Main.scanner.nextInt();
 
 					switch (menu) {
+<<<<<<< Updated upstream
 					// 보드게임 검색 시작
 					case 1:
 						BoardGameManager.search();
@@ -337,11 +609,24 @@ public class Cafe {
 						break;
 					// 음료 검색 종료
 
+=======
+					// 메인-검색-보드게임 검색 시작
+					case 1:
+						boardGameManager.search();
+						break;
+					// 메인-검색-보드게임 검색 종료
+					// 메인-검색-음료 검색 시작
+					case 2:
+						drinkManager.search();
+						break;
+					// 메인-검색-음료 검색 종료
+>>>>>>> Stashed changes
 					default:
 						break;
 					}
 
 					break;
+<<<<<<< Updated upstream
 				// 검색 종료, 검색 메뉴(차차상위 메뉴) 종료
 				case 4:
 					orderList = order.getOrderFromFile(Main.openFile("order.txt"));
@@ -353,6 +638,20 @@ public class Cafe {
 							boardGameMap.put(order, orderList.get(order));
 						} else {
 							drinkMap.put(order, orderList.get(order));
+=======
+				// 메인-검색 종료
+				// 메인-추천 시작
+				case 4:
+					orderList = order.getOrderFromFile(Main.scanFile("order.txt"));
+					HashMap<String, Integer> boardGameMap = new HashMap<>();
+					HashMap<String, Integer> drinkMap = new HashMap<>();
+
+					for (String orderName : orderList.keySet()) {
+						if (boardGameManager.find(orderName) != null) {
+							boardGameMap.put(orderName, orderList.get(orderName));
+						} else {
+							drinkMap.put(orderName, orderList.get(orderName));
+>>>>>>> Stashed changes
 						}
 					}
 
@@ -360,6 +659,7 @@ public class Cafe {
 					int numberOfRecomand = Main.scanner.nextInt();
 
 					switch (numberOfRecomand) {
+<<<<<<< Updated upstream
 					case 1:
 						order.recomand(BoardGameManager.sortMap(boardGameMap));
 						break;
@@ -368,16 +668,41 @@ public class Cafe {
 						break;
 					}
 					break;
+=======
+					// 메인-추천-보드게임 추천 시작
+					case 1:
+						order.recomand(boardGameManager.sortMap(boardGameMap));
+						break;
+					// 메인-추천-보드게임 추천 종료
+					// 메인-추천-음료 추천 시작
+					case 2:
+						order.recomand(drinkManager.sortMap(drinkMap));
+						break;
+					// 메인-추천-음료 추천 종료
+					default:
+						break;
+					}
+
+					break;
+				// 메인-추천 종료
+>>>>>>> Stashed changes
 				default:
 					break;
 				}
 			}
+<<<<<<< Updated upstream
 			// 메인 메뉴(차상위 메뉴) 종료
 		}
+=======
+			// 메인 종료
+		}
+		// 키오스크 종료
+>>>>>>> Stashed changes
 	}
 
 	private static void createAndShowGUI() {
 		// Create and set up the window.
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 		JFrame frame = new JFrame("BoardGameTableSelection");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -386,6 +711,8 @@ public class Cafe {
 		BoardGameTableSelection newContentPane = new BoardGameTableSelection();
 		newContentPane.setOpaque(true); // content panes must be opaque
 =======
+=======
+>>>>>>> Stashed changes
 		JFrame frame = new JFrame("RoomSelection");
 //		JFrame frame = new JFrame("BoardGameTableSelection");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -396,6 +723,9 @@ public class Cafe {
 		frame.setLocationRelativeTo(null); // 프레임을 화면 가운데에 배치
 		newContentPane.setOpaque(true); // content panes must be opaque
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		frame.setContentPane(newContentPane);
 
@@ -403,6 +733,7 @@ public class Cafe {
 		frame.pack();
 		frame.setVisible(true);
 	}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
 	private static void createAndShowGUI2() {
@@ -440,5 +771,7 @@ public class Cafe {
 
 =======
 	}*/
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }

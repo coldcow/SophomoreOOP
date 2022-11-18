@@ -32,14 +32,14 @@ public class BoardGameTableSelection extends JFrame implements ActionListener, L
 	}
 
 	void BoardGameTableInit() {
-		/*Cafe.BoardGameManager.readAll(Main.openFile("boardgame.txt"), new Factory<BoardGame>() {
+		/*Cafe.boardGameManager.readAll(Main.scanFile("boardgame.txt"), new Factory<BoardGame>() {
 			public BoardGame create() {
 				return new BoardGame();
 			}
 		});*/
 		final String[] columnNames = { "이름", "난이도(1~7)", "장르", "인원수", "게임시간" };
 		DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
-		for (BoardGame s : Cafe.BoardGameManager.managees)
+		for (BoardGame s : Cafe.boardGameManager.managees)
 			tableModel.addRow(s.getTexts());
 
 		table = new JTable(tableModel);

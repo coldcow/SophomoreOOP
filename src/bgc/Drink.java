@@ -1,5 +1,9 @@
 package bgc;
 
+<<<<<<< Updated upstream
+=======
+import java.io.File;
+>>>>>>> Stashed changes
 import java.util.Scanner;
 
 import mng.Manageable;
@@ -16,6 +20,13 @@ public class Drink implements Manageable {
         price = scanner.nextInt();
     }
 
+<<<<<<< Updated upstream
+=======
+	@Override
+	public void write(File file) {
+	}
+	
+>>>>>>> Stashed changes
     @Override
     public void print() {
         System.out.format("[%s]\t <%s>\t %d원\n", type, name, price);

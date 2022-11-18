@@ -91,7 +91,7 @@ public class RoomSelection extends JPanel implements ActionListener, ListSelecti
 		}
 		
 		if (num.equals("1번방")) {
-			if(Cafe.RoomManager.find(num).availability == 1) {
+			if(Cafe.roomManager.find(num).availability == false) {
 				JLabel label = new JLabel("사용할 수 없는 방입니다.");
 				label.setHorizontalAlignment(SwingConstants.CENTER);
 				jf.add(label);
@@ -100,7 +100,7 @@ public class RoomSelection extends JPanel implements ActionListener, ListSelecti
 			}
 		}
 		if (num.equals("2번방")) {
-			if(Cafe.RoomManager.find(num).availability == 1) {
+			if(Cafe.roomManager.find(num).availability == false) {
 				JLabel label = new JLabel("사용할 수 없는 방입니다.");
 				label.setHorizontalAlignment(SwingConstants.CENTER);
 				jf.add(label);
@@ -109,7 +109,7 @@ public class RoomSelection extends JPanel implements ActionListener, ListSelecti
 			}
 		}
 		if (num.equals("3번방")) {
-			if(Cafe.RoomManager.find(num).availability == 1) {
+			if(Cafe.roomManager.find(num).availability == false) {
 				JLabel label = new JLabel("사용할 수 없는 방입니다.");
 				label.setHorizontalAlignment(SwingConstants.CENTER);
 				jf.add(label);
@@ -118,7 +118,7 @@ public class RoomSelection extends JPanel implements ActionListener, ListSelecti
 			}
 		}
 		if (num.equals("4번방")) {
-			if(Cafe.RoomManager.find(num).availability == 1) {
+			if(Cafe.roomManager.find(num).availability == false) {
 				JLabel label = new JLabel("사용할 수 없는 방입니다.");
 				label.setHorizontalAlignment(SwingConstants.CENTER);
 				jf.add(label);
@@ -136,7 +136,7 @@ public class RoomSelection extends JPanel implements ActionListener, ListSelecti
 	}
 
 	void RoomTableInit() {
-		Cafe.RoomManager.readAll(Main.openFile("room.txt"), new Factory<Room>() {
+		Cafe.roomManager.readAll(Main.scanFile("room.txt"), new Factory<Room>() {
 			public Room create() {
 				return new Room();
 			}
