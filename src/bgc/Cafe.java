@@ -109,12 +109,23 @@ public class Cafe {
 
 				if (!condition)
 					continue;
+<<<<<<< Updated upstream
 
 				javax.swing.SwingUtilities.invokeLater(new Runnable() {
 					public void run() {
 						createAndShowGUI2();
 					}
 				});
+=======
+				
+				/* 작업 중
+				javax.swing.SwingUtilities.invokeLater(new Runnable() {
+					public void run() {
+						createAndShowGUI();
+					}
+				});*/
+
+>>>>>>> Stashed changes
 				System.out.print("입장하실 방의 번호를 입력하세요: ");
 				String numIn = Main.scanner.next();
 				if (numIn.equals("end"))
@@ -126,12 +137,20 @@ public class Cafe {
 					continue;
 				}
 
+<<<<<<< Updated upstream
 				if (!room.availability) {
+=======
+				if (room.availability == 1) {
+>>>>>>> Stashed changes
 					System.out.println("이미 사용중인 방입니다. 다시 입력해주세요.");
 					continue;
 				}
 
+<<<<<<< Updated upstream
 				room.availability = false;
+=======
+				room.availability = 1;
+>>>>>>> Stashed changes
 				menuState = 1;
 				break;
 			}
@@ -159,7 +178,11 @@ public class Cafe {
 							continue;
 						}
 
+<<<<<<< Updated upstream
 						if (room.availability) {
+=======
+						if (room.availability == 0) {
+>>>>>>> Stashed changes
 							System.out.println("이미 퇴장 처리된 방입니다. 다시 입력해주세요.");
 							continue;
 						}
@@ -176,7 +199,11 @@ public class Cafe {
 							order.addOrderToFile(Main.openJustFile("order.txt"));
 							menuState = 0;
 							System.out.println("이용해주셔서 감사합니다. 안녕히가세요.");
+<<<<<<< Updated upstream
 							room.availability = true;
+=======
+							room.availability = 0;
+>>>>>>> Stashed changes
 							break;
 						case 2:
 							if (payment.showMileage(user) == 0) {
@@ -194,7 +221,11 @@ public class Cafe {
 							order.addOrderToFile(Main.openJustFile("order.txt"));
 							menuState = 0;
 							System.out.println("이용해주셔서 감사합니다. 안녕히가세요.");
+<<<<<<< Updated upstream
 							room.availability = true;
+=======
+							room.availability = 0;
+>>>>>>> Stashed changes
 							break;
 						default:
 							System.out.println("지정된 메뉴가 없습니다 다시 시도해 주세요");
@@ -218,12 +249,21 @@ public class Cafe {
 					case 1:
 						// System.out.println("이름 난이도(1~7) 장르 인원수 게임시간");
 						// BoardGameManager.printAll();
+<<<<<<< Updated upstream
 
 						javax.swing.SwingUtilities.invokeLater(new Runnable() {
 							public void run() {
 								createAndShowGUI();
 							}
 						});
+=======
+						/*
+						javax.swing.SwingUtilities.invokeLater(new Runnable() {
+							public void run() {
+								createAndShowGUI0();
+							}
+						});*/
+>>>>>>> Stashed changes
 
 						while (true) {
 							System.out.print("사용하실 보드게임을 입력해주세요: ");
@@ -338,18 +378,32 @@ public class Cafe {
 
 	private static void createAndShowGUI() {
 		// Create and set up the window.
+<<<<<<< Updated upstream
 		JFrame frame = new JFrame("BoardGameTableSelection");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// Create and set up the content pane.
 		BoardGameTableSelection newContentPane = new BoardGameTableSelection();
 		newContentPane.setOpaque(true); // content panes must be opaque
+=======
+		JFrame frame = new JFrame("RoomSelection");
+//		JFrame frame = new JFrame("BoardGameTableSelection");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// Create and set up the content pane.
+		RoomSelection newContentPane = new RoomSelection();
+//		BoardGameTableSelection newContentPane = new BoardGameTableSelection();
+		frame.setLocationRelativeTo(null); // 프레임을 화면 가운데에 배치
+		newContentPane.setOpaque(true); // content panes must be opaque
+
+>>>>>>> Stashed changes
 		frame.setContentPane(newContentPane);
 
 		// Display the window.
 		frame.pack();
 		frame.setVisible(true);
 	}
+<<<<<<< Updated upstream
 
 	private static void createAndShowGUI2() {
 		// Create and set up the window.
@@ -363,11 +417,28 @@ public class Cafe {
 		frame.setLocationRelativeTo(null); // 프레임을 화면 가운데에 배치
 		newContentPane.setOpaque(true); // content panes must be opaque
 
+=======
+	
+	
+	/*
+	private static void createAndShowGUI0() {
+		// Create and set up the window.
+		JFrame frame = new JFrame("BoardGameTableSelection");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// Create and set up the content pane.
+		BoardGameTableSelection newContentPane = new BoardGameTableSelection();
+		newContentPane.setOpaque(true); // content panes must be opaque
+>>>>>>> Stashed changes
 		frame.setContentPane(newContentPane);
 
 		// Display the window.
 		frame.pack();
 		frame.setVisible(true);
+<<<<<<< Updated upstream
 	}
 
+=======
+	}*/
+>>>>>>> Stashed changes
 }
