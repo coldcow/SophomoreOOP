@@ -1,7 +1,7 @@
 package mng;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.util.Map.Entry;
 
 import bgc.Main;
 
@@ -40,10 +40,24 @@ public class Manager<T extends Manageable> {
 
     public T find(String keyword) {
         for (T managee : managees) {
-            if (managee.matches(keyword))
+            if (managee.matches(keyword)) {
                 return managee;
+            }
         }
-
         return null;
+    }
+
+    public List<Entry<String, Integer>> sortMap(HashMap<String, Integer> map) {
+        List<Entry<String, Integer>> list_entries = new ArrayList<Entry<String, Integer>>(map.entrySet());
+
+        // 비교함수 Comparator를 사용하여 오름차순으로 정렬
+        Collections.sort(list_entries, new Comparator<Entry<String, Integer>>() {
+            // compare로 값을 비교
+            public int compare(Entry<String, Integer> obj1, Entry<String, Integer> obj2) {
+                // 오름 차순 정렬
+                return obj1.getValue().compareTo(obj2.getValue());
+            }
+        });
+        return list_entries;
     }
 }

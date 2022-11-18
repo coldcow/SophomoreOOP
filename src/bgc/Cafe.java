@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import mng.Factory;
 import mng.Manager;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class Cafe {
     static Manager<BoardGame> BoardGameManager = new Manager<>();
@@ -300,14 +300,26 @@ public class Cafe {
                     case 4:
                         orderList = order.getOrderFromFile(Main.openFile("order.txt"));
                         HashMap<String, Integer> boardGameMap = new HashMap<>();
-                        HashMap<String, Integer> DrinkMap = new HashMap<>();
+                        HashMap<String, Integer> drinkMap = new HashMap<>();
 
                         for (String order : orderList.keySet()) {
-                            if (order.equals(BoardGameManager.find(order).name)) {
+                            if (BoardGameManager.find(order) != null) {
                                 boardGameMap.put(order, orderList.get(order));
                             } else {
-                                DrinkMap.put(order, orderList.get(order));
+                                drinkMap.put(order, orderList.get(order));
                             }
+                        }
+
+                        System.out.print("(1) 보드게임 추천 (2) 음료 추천");
+                        int numberOfRecomand = Main.scanner.nextInt();
+
+                        switch (numberOfRecomand) {
+                            case 1:
+                                order.recomand(BoardGameManager.sortMap(boardGameMap));
+                                break;
+                            case 2:
+                                order.recomand(DrinkManager.sortMap(drinkMap));
+                                break;
                         }
                         break;
                     default:

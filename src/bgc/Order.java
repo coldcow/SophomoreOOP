@@ -2,6 +2,7 @@ package bgc;
 
 import java.io.*;
 import java.util.*;
+import java.util.Map.Entry;
 
 public class Order {
     ArrayList<String> orderedName = new ArrayList<>();
@@ -11,11 +12,12 @@ public class Order {
     Order(String id) {
         this.id = id;
     }
-    public void addOrderToFile(File file) {
-        try{
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file,true));
 
-            if(file.isFile() && file.canWrite()){
+    public void addOrderToFile(File file) {
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
+
+            if (file.isFile() && file.canWrite()) {
 
                 bufferedWriter.write(id + " ");
                 for (String item : orderedName) {
@@ -26,7 +28,7 @@ public class Order {
 
                 bufferedWriter.close();
             }
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.out.println(e);
         }
     }
@@ -39,8 +41,11 @@ public class Order {
             if (id.equals(trash)) {
                 String[] orderList = scanner.nextLine().split(" ");
                 for (String order : orderList) {
-                    if (userHistory.containsKey(order)) {
-                        userHistory.put(order, userHistory.get(order)+1);
+                    if (order.equals("")) {
+                        continue;
+                    }
+                    else if (userHistory.containsKey(order)){
+                        userHistory.put(order, userHistory.get(order) + 1);
                     }
                     else {
                         userHistory.put(order, 1);
@@ -51,6 +56,19 @@ public class Order {
             }
         }
         return userHistory;
+    }
+
+    public void recomand(List<Entry<String, Integer>> list) {
+        int i = 3;
+        if (list.size() < 3) {
+            System.out.println("데이터가 부족하여 추천이 어렵습니다.");
+        }
+        else {
+            for (Entry<String, Integer> entry : list.subList(list.size() - 3, list.size())) {
+                System.out.println(i +" : " + entry.getKey());
+                i--;
+            }
         }
     }
+}
 
