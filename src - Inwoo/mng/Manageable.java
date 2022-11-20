@@ -1,11 +1,14 @@
 package mng;
 
+import java.io.File;
 import java.util.Scanner;
 
 public interface Manageable {
-	void read(Scanner scanner);
+    void read(Scanner scanner);
 
-	void print();
+	void write(File file);
+	
+    void print();
 
-	boolean matches(String keyword);
+    boolean matches(String keyword);
 }
