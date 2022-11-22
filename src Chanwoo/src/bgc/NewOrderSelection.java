@@ -9,11 +9,12 @@ import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Calendar;
 
-public class NewOrderSelection extends JFrame{
+public class NewOrderSelection extends JFrame implements Runnable{
 
 	JFrame frame;
-
+	JLabel timerLabel = new JLabel();
 	/**
 	 * Launch the application.
 	 */
@@ -83,19 +84,49 @@ public class NewOrderSelection extends JFrame{
 		lblNewLabel.setBounds(12, 10, 158, 22);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("남은 시간: ");
-		lblNewLabel_1.setBounds(182, 10, 158, 22);
-		frame.getContentPane().add(lblNewLabel_1);
+		timerLabel = new JLabel("남은 시간: ");
+		timerLabel.setBounds(182, 10, 158, 22);
+		frame.getContentPane().add(timerLabel);
 		
 		JLabel lblNewLabel_2 = new JLabel("번방");
 		lblNewLabel_2.setBounds(353, 10, 69, 22);
 		frame.getContentPane().add(lblNewLabel_2);
 		
+		
+		setTimer();
 		setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	void setTimer() {
+	String time = getCurrentTime();
+	timerLabel = new JLabel("남은 시간: "+time);
+	timerLabel.setBounds(182, 10, 158, 22);
+	frame.getContentPane().add(timerLabel);
+	Thread t1 = new Thread(this);
+	t1.start();
+	}
+	
+	@Override
+	public void run() {
+		while(true) {
+			try {
+				Thread.sleep(1000);
+				String time = getCurrentTime();
+				timerLabel.setText("남은 시간: "+time);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public String getCurrentTime() {
+		Calendar c = Calendar.getInstance();
+		int hour = c.get(Calendar.HOUR_OF_DAY);
+		int min = c.get(Calendar.MINUTE);
+		int sec = c.get(Calendar.SECOND);
+		
+		String time = hour+":"+min+":"+sec;
+		return time;
+	}
 	
 }
