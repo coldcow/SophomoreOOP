@@ -10,13 +10,34 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.zip.CheckedOutputStream;
 
 public class Cafe {
 	static Manager<BoardGame> boardGameManager = new Manager<>();
-	Manager<Drink> drinkManager = new Manager<>();
+	static Manager<Drink> drinkManager = new Manager<>();
 	static Manager<Room> roomManager = new Manager<>();
 	Manager<User> userManager = new Manager<>();
 
+	static int menu = 0;
+	static boolean condition = false;
+
+	static HashMap<String, Integer> orderList = null;
+
+	static User user;
+	static Room room;
+	static BoardGame boardGame;
+	static Drink drink;
+	static Order order = new Order(null);
+
+	static String userIdentifier;
+	static String userPassword;
+	static int userAge;
+	static String roomNumber;
+	static String boardGameInformation;
+	static String drinkName;
+	static int mileageToUse = 0;
+	static int cost;
+	
 	void run() {
 		boardGameManager.readAll(Main.scanFile("boardgame.txt"), new Factory<BoardGame>() {
 			public BoardGame create() {
@@ -44,25 +65,25 @@ public class Cafe {
 
 		// 키오스크 시작
 		while (true) {
-			int menu = 0;
-			boolean condition = false;
+			menu = 0;
+			condition = false;
 
-			HashMap<String, Integer> orderList = null;
+			orderList = null;
 
-			User user = new User();
-			Room room = new Room();
-			BoardGame boardGame = new BoardGame();
-			Drink drink = new Drink();
-			Order order = new Order(null);
+			user = new User();
+			room = new Room();
+			boardGame = new BoardGame();
+			drink = new Drink();
+			order = new Order(null);
 
-			String userIdentifier = null;
-			String userPassword = null;
-			int userAge = 0;
-			String roomNumber = null;
-			String boardGameInformation = null;
-			String drinkName = null;
-			int cost = 0;
-			int mileageToUse = 0;
+			userIdentifier = null;
+			userPassword = null;
+			userAge = 0;
+			roomNumber = null;
+			boardGameInformation = null;
+			drinkName = null;
+			mileageToUse = 0;
+			cost = 0;
 			
 			System.out.println("키오스크 종료를 원하시면 0을 입력해주세요.");
 			menu = Main.scanner.nextInt();
@@ -156,12 +177,11 @@ public class Cafe {
 				}
 			}
 			// 계정 종료
-			/* 여기서 오류, 난 틀렸어... 뒤를 부탁해...
 			javax.swing.SwingUtilities.invokeLater(new Runnable() {
 				public void run() {
 					createAndShowGUI();
 				}
-			});*/
+			});
 			// 입장 시작
 			while (true) {
 				System.out.print("입장하실 방의 번호를 입력하세요: ");

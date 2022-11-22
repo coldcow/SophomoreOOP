@@ -54,8 +54,4 @@ public class User implements Manageable {
 	public boolean matches(String keyword) {
 		return identifier.equals(keyword);
 	}
-
-	private String toString(int mileage) {
-		return String.valueOf(mileage);
-	}
 }
