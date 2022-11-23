@@ -142,7 +142,6 @@ public class BoardGameOrderFrame extends JFrame {
 		for (BoardGame boardGame : Cafe.boardGameManager.managees) {
 			this.boardGame = new JPanel();
 			boardGameList.add(this.boardGame);
-			this.boardGame.setBorder(new Border);
 			this.boardGame.setName(boardGame.name);
 			this.boardGame.setLayout(new BorderLayout());
 			this.boardGame.addMouseListener(new MouseListener() {
