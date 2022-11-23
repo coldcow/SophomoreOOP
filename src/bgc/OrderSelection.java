@@ -67,7 +67,7 @@ public class OrderSelection extends JFrame{
 		
 		if (order.equals("보드게임 주문")) {
 			System.out.println("보드게임 주문창 실행");
-			new BoardGameTableSelection();
+			//new BoardGameTableSelection();
 			setVisible(false);
 		}
 		

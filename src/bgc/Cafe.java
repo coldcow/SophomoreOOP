@@ -16,7 +16,7 @@ public class Cafe {
 	static Manager<BoardGame> boardGameManager = new Manager<>();
 	static Manager<Drink> drinkManager = new Manager<>();
 	static Manager<Room> roomManager = new Manager<>();
-	Manager<User> userManager = new Manager<>();
+	static Manager<User> userManager = new Manager<>();
 
 	static int menu = 0;
 	static boolean condition = false;
