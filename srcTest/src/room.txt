@@ -1,0 +1,4 @@
+1번방 false	
+2번방 true
+3번방 true
+4번방 true
