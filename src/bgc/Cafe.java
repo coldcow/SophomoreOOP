@@ -5,6 +5,10 @@ import javax.swing.JFrame;
 import mng.Factory;
 import mng.Manager;
 
+<<<<<<< Updated upstream
+=======
+import java.awt.EventQueue;
+>>>>>>> Stashed changes
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -38,6 +42,12 @@ public class Cafe {
 	static int mileageToUse = 0;
 	static int cost;
 	
+<<<<<<< Updated upstream
+=======
+	BoardGameOrderFrame boardGameOrder;
+	DrinkOrderFrame drinkOrder;
+	
+>>>>>>> Stashed changes
 	void run() {
 		boardGameManager.readAll(Main.scanFile("boardgame.txt"), new Factory<BoardGame>() {
 			public BoardGame create() {
@@ -84,6 +94,12 @@ public class Cafe {
 			drinkName = null;
 			mileageToUse = 0;
 			cost = 0;
+<<<<<<< Updated upstream
+=======
+			
+			boardGameOrder = new BoardGameOrderFrame();
+			drinkOrder = new DrinkOrderFrame();
+>>>>>>> Stashed changes
 			
 			System.out.println("키오스크 종료를 원하시면 0을 입력해주세요.");
 			menu = Main.scanner.nextInt();
@@ -279,7 +295,7 @@ public class Cafe {
 					switch (menu) {
 					// 메인-주문-보드게임 대여 시작
 					case 1:
-						boardGameManager.printAll();
+						/*boardGameManager.printAll();
 						System.out.print("대여하실 보드게임을 입력해주세요(end로 종료): ");
 
 						while (true) {
@@ -298,12 +314,14 @@ public class Cafe {
 							order.orderedName.add(boardGame.name);
 						}
 
-						System.out.println("보드게임이 대여되었습니다.");
+						System.out.println("보드게임이 대여되었습니다.");*/
+						
+						boardGameOrder.setVisible(true);
 						break;
 					// 메인-주문-보드게임 대여 종료
 					// 메인-주문-음료 주문 시작
 					case 2:
-						drinkManager.printAll();
+						/*drinkManager.printAll();
 						System.out.print("주문하실 음료수를 모두 입력해주세요(end로 종료): ");
 
 						while (true) {
@@ -322,7 +340,9 @@ public class Cafe {
 							cost += drink.price;
 						}
 
-						System.out.println("음료가 주문되었습니다.");
+						System.out.println("음료가 주문되었습니다.");*/
+						
+						drinkOrder.setVisible(true);
 						break;
 					// 메인-주문-음료 주문 종료
 

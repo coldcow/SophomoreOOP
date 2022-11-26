@@ -53,6 +53,20 @@ public class Manager<T extends Manageable> {
 
 		return null;
 	}
+<<<<<<< Updated upstream
+=======
+	
+	public ArrayList<T> findAll(String keyword) {
+		ArrayList<T> result = new ArrayList<>();
+		
+		for (T managee : managees) {
+			if (managee.matches(keyword))
+				result.add(managee);
+		}
+		
+		return result;
+	}
+>>>>>>> Stashed changes
 
 	public List<Entry<String, Integer>> sortMap(HashMap<String, Integer> map) {
 		List<Entry<String, Integer>> list_entries = new ArrayList<Entry<String, Integer>>(map.entrySet());
