@@ -9,7 +9,7 @@ public class Order {
     HashMap<String, Integer> userHistory = new HashMap<>();
     String id;
 
-    Order(String id) {
+    public Order(String id) {
         this.id = id;
     }
 
@@ -25,7 +25,6 @@ public class Order {
                 }
                 //개행문자쓰기
                 bufferedWriter.newLine();
-
                 bufferedWriter.close();
             }
         } catch (IOException e) {

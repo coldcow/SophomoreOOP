@@ -32,4 +32,8 @@ public class Drink implements Manageable {
                 || name.contains(keyword)
                 || (price + "").contains(keyword));
     }
+    
+    String[] getTexts() {
+        return new String[] { type, name, ""+price };
+    }
 }
