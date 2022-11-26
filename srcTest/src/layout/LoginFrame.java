@@ -205,7 +205,16 @@ public class LoginFrame extends JFrame {
                     JOptionPane.showMessageDialog(null, "로그인에 성공하셨습니다.");
                     Cafe.order = new Order(Cafe.user.identifier);
                     dispose();
-                    Cafe.createAndShowGUI();
+                    EventQueue.invokeLater(new Runnable() {
+                        public void run() {
+                            try {
+                                RoomSelection window = new RoomSelection();
+                                window.setVisible(true);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "로그인 실패.");

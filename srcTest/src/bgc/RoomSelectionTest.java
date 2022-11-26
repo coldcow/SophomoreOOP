@@ -50,7 +50,7 @@ public class RoomSelectionTest {
         frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("원하는 방을 선택하세요");
+		JLabel lblNewLabel = new JLabel("- 원하는 방을 선택하세요 -");
 		lblNewLabel.setForeground(new Color(105, 170, 70));
 		lblNewLabel.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 27));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -69,33 +69,33 @@ public class RoomSelectionTest {
 		
 		JButton btnNewButton = new JButton("1");
 		btnNewButton.setFont(new Font("나눔고딕", Font.BOLD, 16));
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(133, 175, 75));
-		btnNewButton.setBorderPainted(false);
+		btnNewButton.setForeground(new Color(0, 0, 0));
+		btnNewButton.setBackground(new Color(255, 255, 255));
+		btnNewButton.setBorderPainted(true);
 		btnNewButton.setBounds(80, 124, 97, 35);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("2");
 		btnNewButton_1.setFont(new Font("나눔고딕", Font.BOLD, 16));
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBackground(new Color(133, 175, 75));
-		btnNewButton_1.setBorderPainted(false);
+		btnNewButton_1.setForeground(new Color(0,0,0));
+		btnNewButton_1.setBackground(new Color(255,255,255));
+		btnNewButton_1.setBorderPainted(true);
 		btnNewButton_1.setBounds(267, 124, 97,35);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("3");
 		btnNewButton_2.setFont(new Font("나눔고딕", Font.BOLD, 16));
-		btnNewButton_2.setBackground(new Color(133, 175, 75));
-		btnNewButton_2.setForeground(new Color(255, 255, 255));
-		btnNewButton_2.setBorderPainted(false);
+		btnNewButton_2.setBackground(new Color(255,255,255));
+		btnNewButton_2.setForeground(new Color(0,0,0));
+		btnNewButton_2.setBorderPainted(true);
 		btnNewButton_2.setBounds(454, 124, 97, 35);
 		frame.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("4");
 		btnNewButton_3.setFont(new Font("나눔고딕", Font.BOLD, 16));
-		btnNewButton_3.setForeground(new Color(255, 255, 255));
-		btnNewButton_3.setBackground(new Color(133, 175, 75));
-		btnNewButton_3.setBorderPainted(false);
+		btnNewButton_3.setForeground(new Color(0,0,0));
+		btnNewButton_3.setBackground(new Color(255,255,255));
+		btnNewButton_3.setBorderPainted(true);
 		btnNewButton_3.setBounds(641, 124, 97, 35);
 		frame.getContentPane().add(btnNewButton_3);
 		
@@ -125,33 +125,33 @@ public class RoomSelectionTest {
 		
 		JButton btnNewButton_4 = new JButton("5");
 		btnNewButton_4.setFont(new Font("나눔고딕", Font.BOLD, 16));
-		btnNewButton_4.setForeground(Color.WHITE);
-		btnNewButton_4.setBorderPainted(false);
-		btnNewButton_4.setBackground(new Color(133, 175, 75));
+		btnNewButton_4.setForeground(Color.BLACK);
+		btnNewButton_4.setBorderPainted(true);
+		btnNewButton_4.setBackground(new Color(255,255,255));
 		btnNewButton_4.setBounds(80, 229, 97, 35);
 		frame.getContentPane().add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("6");
 		btnNewButton_5.setFont(new Font("나눔고딕", Font.BOLD, 16));
-		btnNewButton_5.setForeground(Color.WHITE);
-		btnNewButton_5.setBorderPainted(false);
-		btnNewButton_5.setBackground(new Color(133, 175, 75));
+		btnNewButton_5.setForeground(Color.BLACK);
+		btnNewButton_5.setBorderPainted(true);
+		btnNewButton_5.setBackground(new Color(255,255,255));
 		btnNewButton_5.setBounds(267, 229, 97, 35);
 		frame.getContentPane().add(btnNewButton_5);
 		
 		JButton btnNewButton_6 = new JButton("7");
 		btnNewButton_6.setFont(new Font("나눔고딕", Font.BOLD, 16));
-		btnNewButton_6.setForeground(Color.WHITE);
-		btnNewButton_6.setBorderPainted(false);
-		btnNewButton_6.setBackground(new Color(133, 175, 75));
+		btnNewButton_6.setForeground(Color.BLACK);
+		btnNewButton_6.setBorderPainted(true);
+		btnNewButton_6.setBackground(new Color(255,255,255));
 		btnNewButton_6.setBounds(454, 229, 97, 35);
 		frame.getContentPane().add(btnNewButton_6);
 		
 		JButton btnNewButton_7 = new JButton("8");
 		btnNewButton_7.setFont(new Font("나눔고딕", Font.BOLD, 16));
-		btnNewButton_7.setForeground(Color.WHITE);
-		btnNewButton_7.setBorderPainted(false);
-		btnNewButton_7.setBackground(new Color(133, 175, 75));
+		btnNewButton_7.setForeground(Color.BLACK);
+		btnNewButton_7.setBorderPainted(true);
+		btnNewButton_7.setBackground(new Color(255,255,255));
 		btnNewButton_7.setBounds(641, 229, 97, 35);
 		frame.getContentPane().add(btnNewButton_7);
 		
