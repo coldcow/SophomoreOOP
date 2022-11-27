@@ -6,12 +6,12 @@ import java.util.Scanner;
 import mng.Manageable;
 
 public class Room implements Manageable {
-	int number;
+	String number;
 	boolean availability;
 	
 	@Override
 	public void read(Scanner scanner) {
-		number = scanner.nextInt();
+		number = scanner.next();
 		availability = scanner.nextBoolean();
 	}
 

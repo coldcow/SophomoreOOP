@@ -6,8 +6,8 @@ import java.util.Scanner;
 import mng.Manageable;
 
 public class User implements Manageable {
-	String identifier;
-	String password;
+	public String identifier;
+	public String password;
 	int age;
 	int mileage = 0;
 
@@ -22,18 +22,20 @@ public class User implements Manageable {
 	@Override
 	public void write(File file) {
 		try {
-			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false));
+			for (User user : Cafe.userManager.managees) {
+				if (file.isFile() && file.canWrite()) {
 
-			if (file.isFile() && file.canWrite()) {
-				bufferedWriter.write(identifier + " ");
-				bufferedWriter.write(password + " ");
-				bufferedWriter.write(age + " ");
-				bufferedWriter.write(mileage + "");
-				bufferedWriter.newLine();
-				bufferedWriter.close();
+					bufferedWriter.write(user.identifier + " ");
+					bufferedWriter.write(user.password + " ");
+					bufferedWriter.write(user.age + " ");
+					bufferedWriter.write(toString(user.mileage));
+					bufferedWriter.newLine();
+
+					bufferedWriter.close();
+				}
 			}
 		}
-
 		catch (IOException exception) {
 			System.out.println(exception);
 		}
@@ -53,5 +55,9 @@ public class User implements Manageable {
 	@Override
 	public boolean matches(String keyword) {
 		return identifier.equals(keyword);
+	}
+
+	private String toString(int mileage) {
+		return String.valueOf(mileage);
 	}
 }
