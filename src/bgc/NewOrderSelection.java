@@ -3,10 +3,13 @@ package bgc;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JApplet;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import javax.swing.JTextPane;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -40,28 +43,28 @@ public class NewOrderSelection extends JFrame{
     	setForeground(new Color(255, 255, 255));
     	setBackground(new Color(255, 255, 255));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame = new JFrame();
         setTitle("주문 선택");
         setSize( 450, 300);
         getContentPane().setLayout(null);
+        
+        JPanel newpanel = new JPanel(new BorderLayout());
+        newpanel.setBounds(0, 40, 300, 240);
+        newpanel.setBackground(Color.ORANGE);
+        getContentPane().add(newpanel);
+        
+        DrinkOrderPanel dp = new DrinkOrderPanel();
+        BoardGameOrderPanel bp = new BoardGameOrderPanel();
 
         JButton btnNewButton = new JButton("보드게임");
         btnNewButton.setBackground(new Color(133, 175, 75));
         btnNewButton.setForeground(new Color(255, 255, 255));
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //BoardGameSelection frm = new BoardGameSelection();
-                EventQueue.invokeLater(new Runnable() {
-                                           public void run() {
-                                               try {
-                                                   BoardGameOrderFrame frame = new BoardGameOrderFrame();
-                                                   frame.setVisible(true);
-                                               } catch (Exception e) {
-                                                   e.printStackTrace();
-                                               }
-                                           }
-                                       });
-                //frm.setVisible(true);
+            	newpanel.removeAll();
+                bp.setVisible(true);
+                newpanel.add(bp,BorderLayout.CENTER);
+                newpanel.revalidate();
+                newpanel.repaint();
             }
         });
         btnNewButton.setBounds(326, 93, 96, 32);
@@ -74,18 +77,11 @@ public class NewOrderSelection extends JFrame{
         btnNewButton_2.setForeground(new Color(255, 255, 255));
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //DrinkSelection frm = new DrinkSelection();
-                //frm.setVisible(true);
-                EventQueue.invokeLater(new Runnable() {
-                    public void run() {
-                        try {
-                            DrinkOrderFrame frame = new DrinkOrderFrame();
-                            frame.setVisible(true);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+            	newpanel.removeAll();
+                dp.setVisible(true);
+            	newpanel.add(dp, BorderLayout.CENTER);
+            	newpanel.revalidate();
+                newpanel.repaint();
             }
         });
         btnNewButton_2.setBounds(326, 135, 96, 32);

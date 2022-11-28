@@ -1,14 +1,19 @@
 package bgc;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import layout.ModifiedFlowLayout;
+import mng.Factory;
 
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.JTextField;
 
@@ -25,59 +30,41 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
-public class DrinkOrderFrame extends JFrame {
-	private JPanel contentPane;
-			private JPanel selection;
-				private JPanel logo;
-				private JTabbedPane tappedPane;
-					JPanel panel;
-						JScrollPane scrollPane;
-						//JPanel drinkList;
-							JPanel drink;
-								JLabel image;
-								JLabel name;
-						JPanel search;
-							JTextField searchBar;
-							JButton searchButton;
-		private JPanel confirmation;
-			private JTextArea orderList;
-			private JLabel cost;
-			private JButton orderButton;
+public class DrinkOrderPanel extends JPanel {
+	private JPanel selection;
+	private JPanel logo;
+	private JTabbedPane tappedPane;
+		JPanel panel;
+			JScrollPane scrollPane;
+			//JPanel drinkList;
+				JPanel drink;
+					JLabel image;
+					JLabel name;
+			JPanel search;
+				JTextField searchBar;
+				JButton searchButton;
+	private JPanel confirmation;
+		private JTextArea orderList;
+		private JLabel cost;
+		private JButton orderButton;
 
-	public static void main(String[] args) {
-		/*Cafe.drinkManager.readAll(Main.scanFile("drink.txt"), new Factory<Drink>() {
-			public Drink create() {
-				return new Drink();
-			}
-		});*/
-
-		/*EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DrinkOrderFrame frame = new DrinkOrderFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});*/
-	}
-
-	public DrinkOrderFrame() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1600, 900);
-
-		contentPane = new JPanel(new BorderLayout());
-		setContentPane(contentPane);
+	public DrinkOrderPanel() {
+		setLayout(new BorderLayout());
 
 		selection = new JPanel(new BorderLayout());
-		contentPane.add(selection, BorderLayout.CENTER);
+		add(selection, BorderLayout.CENTER);
+		selection.setBackground(new Color(255, 255, 255));
+		
 
 		logo = new JPanel();
 		selection.add(logo, BorderLayout.NORTH);
+		logo.setBackground(new Color(255, 255, 255));
 
 		tappedPane = new JTabbedPane();
 		selection.add(tappedPane, BorderLayout.CENTER);
+		tappedPane.setForeground(new Color(255, 255, 255));
+		tappedPane.setBackground(new Color(133, 175, 75));
+		tappedPane.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 2));
 
 		ArrayList<String> tabLabels = new ArrayList<>();
 
@@ -94,7 +81,7 @@ public class DrinkOrderFrame extends JFrame {
 			panel = new JPanel(new BorderLayout());
 			tappedPane.addTab(tabLabel, panel);
 			JPanel drinkList = new JPanel();
-			drinkList.setLayout(new ModifiedFlowLayout(ModifiedFlowLayout.LEADING));
+			drinkList.setLayout(new ModifiedFlowLayout(ModifiedFlowLayout.CENTER));
 			scrollPane = new JScrollPane(drinkList, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 					JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			panel.add(scrollPane);
@@ -129,7 +116,7 @@ public class DrinkOrderFrame extends JFrame {
 				});
 
 				ImageIcon imageIcon = new ImageIcon(String.format("img/drink/%s.jpg", drink.name));
-				Image imaged = imageIcon.getImage().getScaledInstance(300, 300, Image.SCALE_DEFAULT);
+				Image imaged = imageIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
 				ImageIcon imageIcon2 = new ImageIcon(imaged);
 
 				image = new JLabel(imageIcon2);
@@ -137,8 +124,12 @@ public class DrinkOrderFrame extends JFrame {
 
 				name = new JLabel(drink.name);
 				this.drink.add(name, BorderLayout.SOUTH);
+				name.setForeground(new Color(255, 255, 255));
+				name.setBackground(new Color(133, 175, 75));
+				name.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 2));
 				name.setHorizontalAlignment(JLabel.RIGHT);
-				name.setSize(300, 50);
+				name.setOpaque(true);
+				name.setSize(30, 50);
 			}
 
 			JPanel search = new JPanel(new BorderLayout());
@@ -146,9 +137,14 @@ public class DrinkOrderFrame extends JFrame {
 
 			JTextField searchBar = new JTextField();
 			search.add(searchBar, BorderLayout.CENTER);
+			searchBar.setFont(new Font("나눔고딕", Font.PLAIN, 2));
 
 			JButton searchButton = new JButton("검색");
 			search.add(searchButton, BorderLayout.EAST);
+			searchButton.setForeground(new Color(255, 255, 255));
+			searchButton.setBackground(new Color(133, 175, 75));
+	        searchButton.setBorderPainted(false);
+			searchButton.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 2));
 			searchButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent exception) {
@@ -173,23 +169,33 @@ public class DrinkOrderFrame extends JFrame {
 		}
 
 		confirmation = new JPanel(new BorderLayout());
-		contentPane.add(confirmation, BorderLayout.EAST);
+		add(confirmation, BorderLayout.EAST);
 
-		orderList = new JTextArea(0, 50);
+		orderList = new JTextArea(0, 30);
 		confirmation.add(orderList, BorderLayout.CENTER);
+		orderList.setFont(new Font("나눔고딕", Font.PLAIN, 2));
 		
 		cost = new JLabel();
 		confirmation.add(cost, BorderLayout.NORTH);
-		cost.setText(String.format("총 금액: %d원", Cafe.cost));
+		cost.setOpaque(true);
+		cost.setForeground(new Color(255, 255, 255));
+		cost.setBackground(new Color(133, 175, 75));
+		cost.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 2));
+		cost.setText(String.format("총 금액: %6d원", Cafe.cost));
 
 		orderButton = new JButton("주문");
 		confirmation.add(orderButton, BorderLayout.SOUTH);
+		orderButton.setForeground(new Color(255, 255, 255));
+		orderButton.setBackground(new Color(133, 175, 75));
+        orderButton.setBorderPainted(false);
+		orderButton.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 2));
 		orderButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent exception) {
 				for (String string : orderList.getText().split("\n")) {
 					Cafe.order.orderedName.add(string.split("\t")[0]);
 					setVisible(false);
+					orderList.setText(null);
 				}
 			}
 		});

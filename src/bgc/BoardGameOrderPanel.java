@@ -1,17 +1,21 @@
 package bgc;
 
-import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Graphics;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import layout.ModifiedFlowLayout;
 
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
 
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -24,84 +28,63 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
-public class BoardGameOrderFrame extends JFrame {
-	private JPanel contentPane;
-		private JPanel selection;
-			private JPanel logo;
-			private JTabbedPane tappedPane;
-				JPanel panel;
-					JScrollPane scrollPane;
-						//JPanel boardGameList;
-							JPanel boardGame;
-								JLabel image;
-								JLabel name;
-					JPanel search;
-						JTextField searchBar;
-						JButton searchButton;
-		private JPanel confirmation;
-			private JTextArea orderList;
-			private JButton orderButton;
+public class BoardGameOrderPanel extends JPanel {
+	private JPanel selection;
+		private JPanel logo;
+		private JTabbedPane tappedPane;
+			JPanel panel;
+			JScrollPane scrollPane;
+				JPanel boardGameList;
+					JPanel boardGame;
+						JLabel image;
+						JLabel name;
+			JPanel search;
+				JTextField searchBar;
+				JButton searchButton;
+	private JPanel confirmation;
+		private JTextArea orderList;
+		private JButton orderButton;
 
-	public static void main(String[] args) {
-		/*Cafe.boardGameManager.readAll(Main.scanFile("boardgame.txt"), new Factory<BoardGame>() {
-			public BoardGame create() {
-				return new BoardGame();
-			}
-		});*/
-
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BoardGameOrderFrame boardGameOrder = new BoardGameOrderFrame();
-					boardGameOrder.setVisible(true);
-				}
-
-				catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	public BoardGameOrderFrame() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1600, 900);
-
-		contentPane = new JPanel(new BorderLayout());
-		setContentPane(contentPane);
-
-		selection = new JPanel(new BorderLayout());
-		contentPane.add(selection, BorderLayout.CENTER);
+	public BoardGameOrderPanel() {
+		setLayout(new BorderLayout());
 		
+		selection = new JPanel(new BorderLayout());
+		add(selection, BorderLayout.CENTER);
+		selection.setBackground(new Color(255, 255, 255));
+
 		logo = new JPanel();
 		selection.add(logo, BorderLayout.NORTH);
-		
+
 		tappedPane = new JTabbedPane();
 		selection.add(tappedPane, BorderLayout.CENTER);
-		
+		tappedPane.setForeground(new Color(255, 255, 255));
+		tappedPane.setBackground(new Color(133, 175, 75));
+		tappedPane.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 2));
+
 		ArrayList<String> tabLabels = new ArrayList<>();
-		
-		for(BoardGame boardGame : Cafe.boardGameManager.managees) {
+
+		for (BoardGame boardGame : Cafe.boardGameManager.managees) {
 			String[] boardGameGenres = boardGame.genre.split(",");
-			
-			for (String boardGameGenre : boardGameGenres)
-			{
-				if(tabLabels.contains(boardGameGenre))
+
+			for (String boardGameGenre : boardGameGenres) {
+				if (tabLabels.contains(boardGameGenre))
 					continue;
-			
+
 				tabLabels.add(boardGameGenre);
 			}
 		}
-		
+
 		for (String tabLabel : tabLabels) {
 			panel = new JPanel(new BorderLayout());
 			tappedPane.addTab(tabLabel, panel);
+			
 			JPanel boardGameList = new JPanel();
+			boardGameList.setBackground(new Color(255, 255, 255));
 			boardGameList.setLayout(new ModifiedFlowLayout(ModifiedFlowLayout.LEADING));
 			scrollPane = new JScrollPane(boardGameList, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 					JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			panel.add(scrollPane);
-			
+
 			for (BoardGame boardGame : Cafe.boardGameManager.findAll(tabLabel)) {
 				this.boardGame = new JPanel(new BorderLayout());
 				boardGameList.add(this.boardGame);
@@ -125,32 +108,42 @@ public class BoardGameOrderFrame extends JFrame {
 
 					@Override
 					public void mouseClicked(MouseEvent exception) {
-						orderList.append(String.format("%s\t%s\t%s\t%s\t%s\n", boardGame.name, boardGame.genre,
+						orderList.append(String.format("%s\t%s\t%s    %s\t%s\n", boardGame.name, boardGame.genre,
 								boardGame.level, boardGame.numberOfPlayer, boardGame.time));
 					}
 				});
 
 				ImageIcon imageIcon = new ImageIcon(String.format("img/board game/%s.jpg", boardGame.name));
-				Image imaged = imageIcon.getImage().getScaledInstance(300, 300, Image.SCALE_DEFAULT);
+				Image imaged = imageIcon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
 				ImageIcon imageIcon2 = new ImageIcon(imaged);
 
-				image = new JLabel(imageIcon2);
+				image = new JLabel();
 				this.boardGame.add(image, BorderLayout.CENTER);
-				
+				image.setIcon(imageIcon2);
+
 				name = new JLabel(boardGame.name);
 				this.boardGame.add(name, BorderLayout.SOUTH);
+				name.setForeground(new Color(255, 255, 255));
+				name.setBackground(new Color(133, 175, 75));
+				name.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 2));
 				name.setHorizontalAlignment(JLabel.RIGHT);
-				name.setSize(300, 50);
+				name.setOpaque(true);
+				name.setSize(30, 0);
 			}
-			
+
 			JPanel search = new JPanel(new BorderLayout());
 			panel.add(search, BorderLayout.SOUTH);
-			
+
 			JTextField searchBar = new JTextField();
 			search.add(searchBar, BorderLayout.CENTER);
+			searchBar.setFont(new Font("나눔고딕", Font.PLAIN, 2));
 
 			JButton searchButton = new JButton("검색");
 			search.add(searchButton, BorderLayout.EAST);
+	        searchButton.setForeground(new Color(255, 255, 255));
+			searchButton.setBackground(new Color(133, 175, 75));
+	        searchButton.setBorderPainted(false);
+			searchButton.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 2));
 			searchButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent exception) {
@@ -175,19 +168,25 @@ public class BoardGameOrderFrame extends JFrame {
 		}
 
 		confirmation = new JPanel(new BorderLayout());
-		contentPane.add(confirmation, BorderLayout.EAST);
+		add(confirmation, BorderLayout.EAST);
 
-		orderList = new JTextArea(0, 50);
+		orderList = new JTextArea(0, 30);
 		confirmation.add(orderList, BorderLayout.CENTER);
+		orderList.setFont(new Font("나눔고딕", Font.PLAIN, 2));
 
 		orderButton = new JButton("대여");
 		confirmation.add(orderButton, BorderLayout.SOUTH);
+		orderButton.setForeground(new Color(255, 255, 255));
+		orderButton.setBackground(new Color(133, 175, 75));
+        orderButton.setBorderPainted(false);
+		orderButton.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 2));
 		orderButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent exception) {
 				for (String string : orderList.getText().split("\n")) {
 					Cafe.order.orderedName.add(string.split("\t")[0]);
 					setVisible(false);
+					orderList.setText(null);
 				}
 			}
 		});
