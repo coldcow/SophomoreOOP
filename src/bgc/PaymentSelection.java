@@ -13,15 +13,13 @@ import bgc.Order;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
+
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -146,7 +144,7 @@ public class PaymentSelection extends JFrame {
 
 		String[] columnNames = { "종류", "이름", "가격" };
 		DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
-
+		
 		ArrayList<String> s = Cafe.order.orderedName;
 
 		for (String string : s) {
@@ -156,8 +154,9 @@ public class PaymentSelection extends JFrame {
 		}
 
 		table = new JTable(tableModel);
-		JScrollPane scrolledTable = new JScrollPane(table);
-		panel.add(table);
+		JScrollPane scroll = new JScrollPane(table);
+		scroll.setPreferredSize(new Dimension(275, 260));
+		panel.add(scroll, BorderLayout.CENTER);
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.WHITE);
