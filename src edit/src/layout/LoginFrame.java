@@ -79,8 +79,6 @@ public class LoginFrame extends JFrame {
 		ImageIcon greenbttnIcon = new ImageIcon(gbImg1); //Image로 ImageIcon 생성
 		
 		JLabel gbLogo = new JLabel();
-		
-		
 		gbLogo.setIcon(greenbttnIcon);
 		gbLogo.setBounds(12, 10, 390, 477);
 		getContentPane().add(gbLogo);
@@ -157,6 +155,11 @@ public class LoginFrame extends JFrame {
 		gbLabel1.setBounds(414, 64, 295, 38);
 		getContentPane().add(gbLabel1);
 		
+		JLabel lblNewLabel = new JLabel("서비스 이용을 위해 로그인 해주시기 바랍니다.");
+		lblNewLabel.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 12));
+		lblNewLabel.setBounds(414, 150, 304, 15);
+		getContentPane().add(lblNewLabel);
+		
 		JLabel gbLabel2 = new JLabel("어서오세요!");
 		gbLabel2.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 31));
 		gbLabel2.setForeground(new Color(133, 175, 75));
@@ -181,12 +184,6 @@ public class LoginFrame extends JFrame {
         tfPassword.setBounds(483, 236, 192, 21);
 		getContentPane().add(tfPassword);
 		tfPassword.setColumns(10);
-		
-		JLabel lblNewLabel = new JLabel("서비스 이용을 위해 로그인 해주시기 바랍니다.");
-		lblNewLabel.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 12));
-		lblNewLabel.setBounds(414, 150, 304, 15);
-		//lblNewLabel.setBounds(483, 236, 192, 21);
-		getContentPane().add(lblNewLabel);
 
         setVisible(true);
         //회원가입 액션
