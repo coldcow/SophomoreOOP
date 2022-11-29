@@ -36,6 +36,7 @@ public class Cafe {
     public static Room room = new Room();
     public static Order order;
     public static int cost = 0;
+    public static int time = 0;
 
     void run() {
         boardGameManager.readAll(Main.scanFile("boardgame.txt"), new Factory<BoardGame>() {
