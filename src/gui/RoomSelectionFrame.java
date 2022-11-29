@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import bgc.Cafe;
+import bgc.Main;
 
 import java.awt.Font;
 import javax.swing.JButton;
@@ -30,9 +31,10 @@ public class RoomSelectionFrame extends JFrame {
 	int roomNumber = 0;
 
 	public RoomSelectionFrame() {
+		setLocationRelativeTo(null);
 		setBounds(100, 100, 821, 536);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setBackground(new Color(255, 255, 255));
+		getContentPane().setBackground(Color.WHITE);
 		getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("원하는 방을 선택하세요");
@@ -55,18 +57,18 @@ public class RoomSelectionFrame extends JFrame {
 		JButton roomBtn1 = new JButton("1");
 		roomBtn1.setFont(new Font("나눔고딕", Font.BOLD, 16));
 		roomBtn1.setForeground(new Color(0, 0, 0));
-		roomBtn1.setBackground(new Color(255, 255, 255));
+		roomBtn1.setBackground(Color.WHITE);
 		roomBtn1.setBorderPainted(true);
 		roomBtn1.setBounds(80, 124, 97, 35);
 		roomBtn1.addActionListener(event -> {
 			if (roomBtn1.getBackground().equals(Color.WHITE)) {
 				roomNumber = 1;
 				roomBtn1.setForeground(Color.WHITE);
-				roomBtn1.setBackground(new Color(133, 175, 75));
+				roomBtn1.setBackground(Main.THEMECOLOR);
 			} else {
 				roomNumber = 0;
 				roomBtn1.setForeground(Color.BLACK);
-				roomBtn1.setBackground(new Color(255, 255, 255));
+				roomBtn1.setBackground(Color.WHITE);
 			}
 		});
 		getContentPane().add(roomBtn1);
@@ -74,25 +76,25 @@ public class RoomSelectionFrame extends JFrame {
 		JButton roomBtn2 = new JButton("2");
 		roomBtn2.setFont(new Font("나눔고딕", Font.BOLD, 16));
 		roomBtn2.setForeground(new Color(0, 0, 0));
-		roomBtn2.setBackground(new Color(255, 255, 255));
+		roomBtn2.setBackground(Color.WHITE);
 		roomBtn2.setBorderPainted(true);
 		roomBtn2.setBounds(267, 124, 97, 35);
 		roomBtn2.addActionListener(event -> {
 			if (roomBtn2.getBackground().equals(Color.WHITE)) {
 				roomNumber = 2;
 				roomBtn2.setForeground(Color.WHITE);
-				roomBtn2.setBackground(new Color(133, 175, 75));
+				roomBtn2.setBackground(Main.THEMECOLOR);
 			} else {
 				roomNumber = 0;
 				roomBtn2.setForeground(Color.BLACK);
-				roomBtn2.setBackground(new Color(255, 255, 255));
+				roomBtn2.setBackground(Color.WHITE);
 			}
 		});
 		getContentPane().add(roomBtn2);
 
 		JButton roomBtn3 = new JButton("3");
 		roomBtn3.setFont(new Font("나눔고딕", Font.BOLD, 16));
-		roomBtn3.setBackground(new Color(255, 255, 255));
+		roomBtn3.setBackground(Color.WHITE);
 		roomBtn3.setForeground(new Color(0, 0, 0));
 		roomBtn3.setBorderPainted(true);
 		roomBtn3.setBounds(454, 124, 97, 35);
@@ -100,11 +102,11 @@ public class RoomSelectionFrame extends JFrame {
 			if (roomBtn3.getBackground().equals(Color.WHITE)) {
 				roomNumber = 3;
 				roomBtn3.setForeground(Color.WHITE);
-				roomBtn3.setBackground(new Color(133, 175, 75));
+				roomBtn3.setBackground(Main.THEMECOLOR);
 			} else {
 				roomNumber = 0;
 				roomBtn3.setForeground(Color.BLACK);
-				roomBtn3.setBackground(new Color(255, 255, 255));
+				roomBtn3.setBackground(Color.WHITE);
 			}
 		});
 		getContentPane().add(roomBtn3);
@@ -112,18 +114,18 @@ public class RoomSelectionFrame extends JFrame {
 		JButton roomBtn4 = new JButton("4");
 		roomBtn4.setFont(new Font("나눔고딕", Font.BOLD, 16));
 		roomBtn4.setForeground(new Color(0, 0, 0));
-		roomBtn4.setBackground(new Color(255, 255, 255));
+		roomBtn4.setBackground(Color.WHITE);
 		roomBtn4.setBorderPainted(true);
 		roomBtn4.setBounds(641, 124, 97, 35);
 		roomBtn4.addActionListener(event -> {
 			if (roomBtn4.getBackground().equals(Color.WHITE)) {
 				roomNumber = 4;
 				roomBtn4.setForeground(Color.WHITE);
-				roomBtn4.setBackground(new Color(133, 175, 75));
+				roomBtn4.setBackground(Main.THEMECOLOR);
 			} else {
 				roomNumber = 0;
 				roomBtn4.setForeground(Color.BLACK);
-				roomBtn4.setBackground(new Color(255, 255, 255));
+				roomBtn4.setBackground(Color.WHITE);
 			}
 		});
 		getContentPane().add(roomBtn4);
@@ -156,17 +158,17 @@ public class RoomSelectionFrame extends JFrame {
 		roomBtn5.setFont(new Font("나눔고딕", Font.BOLD, 16));
 		roomBtn5.setForeground(Color.BLACK);
 		roomBtn5.setBorderPainted(true);
-		roomBtn5.setBackground(new Color(255, 255, 255));
+		roomBtn5.setBackground(Color.WHITE);
 		roomBtn5.setBounds(80, 229, 97, 35);
 		roomBtn5.addActionListener(event -> {
 			if (roomBtn5.getBackground().equals(Color.WHITE)) {
 				roomNumber = 5;
 				roomBtn5.setForeground(Color.WHITE);
-				roomBtn5.setBackground(new Color(133, 175, 75));
+				roomBtn5.setBackground(Main.THEMECOLOR);
 			} else {
 				roomNumber = 0;
 				roomBtn5.setForeground(Color.BLACK);
-				roomBtn5.setBackground(new Color(255, 255, 255));
+				roomBtn5.setBackground(Color.WHITE);
 			}
 		});
 		getContentPane().add(roomBtn5);
@@ -175,17 +177,17 @@ public class RoomSelectionFrame extends JFrame {
 		roomBtn6.setFont(new Font("나눔고딕", Font.BOLD, 16));
 		roomBtn6.setForeground(Color.BLACK);
 		roomBtn6.setBorderPainted(true);
-		roomBtn6.setBackground(new Color(255, 255, 255));
+		roomBtn6.setBackground(Color.WHITE);
 		roomBtn6.setBounds(267, 229, 97, 35);
 		roomBtn6.addActionListener(event -> {
 			if (roomBtn6.getBackground().equals(Color.WHITE)) {
 				roomNumber = 6;
 				roomBtn6.setForeground(Color.WHITE);
-				roomBtn6.setBackground(new Color(133, 175, 75));
+				roomBtn6.setBackground(Main.THEMECOLOR);
 			} else {
 				roomNumber = 0;
 				roomBtn6.setForeground(Color.BLACK);
-				roomBtn6.setBackground(new Color(255, 255, 255));
+				roomBtn6.setBackground(Color.WHITE);
 			}
 		});
 		getContentPane().add(roomBtn6);
@@ -194,17 +196,17 @@ public class RoomSelectionFrame extends JFrame {
 		roomBtn7.setFont(new Font("나눔고딕", Font.BOLD, 16));
 		roomBtn7.setForeground(Color.BLACK);
 		roomBtn7.setBorderPainted(true);
-		roomBtn7.setBackground(new Color(255, 255, 255));
+		roomBtn7.setBackground(Color.WHITE);
 		roomBtn7.setBounds(454, 229, 97, 35);
 		roomBtn7.addActionListener(event -> {
 			if (roomBtn7.getBackground().equals(Color.WHITE)) {
 				roomNumber = 7;
 				roomBtn7.setForeground(Color.WHITE);
-				roomBtn7.setBackground(new Color(133, 175, 75));
+				roomBtn7.setBackground(Main.THEMECOLOR);
 			} else {
 				roomNumber = 0;
 				roomBtn7.setForeground(Color.BLACK);
-				roomBtn7.setBackground(new Color(255, 255, 255));
+				roomBtn7.setBackground(Color.WHITE);
 			}
 		});
 		getContentPane().add(roomBtn7);
@@ -213,17 +215,17 @@ public class RoomSelectionFrame extends JFrame {
 		roomBtn8.setFont(new Font("나눔고딕", Font.BOLD, 16));
 		roomBtn8.setForeground(Color.BLACK);
 		roomBtn8.setBorderPainted(true);
-		roomBtn8.setBackground(new Color(255, 255, 255));
+		roomBtn8.setBackground(Color.WHITE);
 		roomBtn8.setBounds(641, 229, 97, 35);
 		roomBtn8.addActionListener(event -> {
 			if (roomBtn8.getBackground().equals(Color.WHITE)) {
 				roomNumber = 8;
 				roomBtn8.setForeground(Color.WHITE);
-				roomBtn8.setBackground(new Color(133, 175, 75));
+				roomBtn8.setBackground(Main.THEMECOLOR);
 			} else {
 				roomNumber = 0;
 				roomBtn8.setForeground(Color.BLACK);
-				roomBtn8.setBackground(new Color(255, 255, 255));
+				roomBtn8.setBackground(Color.WHITE);
 			}
 		});
 		getContentPane().add(roomBtn8);
@@ -279,7 +281,7 @@ public class RoomSelectionFrame extends JFrame {
 
 		JCheckBox chckbxNewCheckBox = new JCheckBox("");
 		chckbxNewCheckBox.setHorizontalAlignment(SwingConstants.CENTER);
-		chckbxNewCheckBox.setBackground(new Color(255, 255, 255));
+		chckbxNewCheckBox.setBackground(Color.WHITE);
 		chckbxNewCheckBox.setBounds(113, 402, 26, 23);
 		getContentPane().add(chckbxNewCheckBox);
 
@@ -310,7 +312,7 @@ public class RoomSelectionFrame extends JFrame {
 				}
 
 				Cafe.room = Cafe.roomManager.find(roomNumber + "");
-				OrderSelectionFrame orderSelection = new OrderSelectionFrame();
+				MenuFrame orderSelection = new MenuFrame();
 				orderSelection.setVisible(true);
 				setVisible(false);
 			}

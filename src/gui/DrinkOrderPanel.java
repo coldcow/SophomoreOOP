@@ -36,41 +36,41 @@ import javax.swing.JTextArea;
 public class DrinkOrderPanel extends JPanel {
 	private JPanel selection;
 	private JTabbedPane tappedPane;
-		JPanel panel;
-			JScrollPane scrollPane;
-			//JPanel drinkList;
-				JPanel drink;
-					JLabel image;
-					JLabel name;
-			JPanel search;
-				JTextField searchBar;
-				JButton searchButton;
+	JPanel panel;
+	JScrollPane scrollPane;
+	JPanel drinkList;
+	JPanel drink;
+	JLabel image;
+	JLabel name;
+	JPanel search;
+	JTextField searchBar;
+	JButton searchButton;
 	private JPanel confirmation;
-		private JTextArea orderList;
-		private JLabel cost;
-		private JButton orderButton;
+	private JTextArea orderList;
+	private JLabel cost;
+	private JButton orderButton;
 
 	public DrinkOrderPanel() {
 		setLayout(new BorderLayout());
 
 		selection = new JPanel(new BorderLayout());
 		add(selection, BorderLayout.CENTER);
-		selection.setBackground(new Color(255, 255, 255));
+		selection.setBackground(Color.WHITE);
 
 		tappedPane = new JTabbedPane();
 		selection.add(tappedPane, BorderLayout.CENTER);
-		tappedPane.setForeground(new Color(255, 255, 255));
-		tappedPane.setBackground(new Color(133, 175, 75));
+		tappedPane.setForeground(Color.WHITE);
+		tappedPane.setBackground(Main.THEMECOLOR);
 		tappedPane.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 16));
 
 		ArrayList<String> tabLabels = new ArrayList<>();
 
 		for (Drink drink : Cafe.drinkManager.managees) {
 			String drinkType = drink.type;
-			
+
 			if (tabLabels.contains(drinkType))
 				continue;
-			
+
 			tabLabels.add(drinkType);
 		}
 
@@ -78,7 +78,7 @@ public class DrinkOrderPanel extends JPanel {
 			panel = new JPanel(new BorderLayout());
 			tappedPane.addTab(tabLabel, panel);
 			JPanel drinkList = new JPanel();
-			drinkList.setBackground(new Color(255, 255, 255));
+			drinkList.setBackground(Color.WHITE);
 			drinkList.setLayout(new ModifiedFlowLayout(ModifiedFlowLayout.LEADING));
 			scrollPane = new JScrollPane(drinkList, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 					JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -123,8 +123,8 @@ public class DrinkOrderPanel extends JPanel {
 
 				name = new JLabel(drink.name);
 				this.drink.add(name, BorderLayout.SOUTH);
-				name.setForeground(new Color(255, 255, 255));
-				name.setBackground(new Color(133, 175, 75));
+				name.setForeground(Color.WHITE);
+				name.setBackground(Main.THEMECOLOR);
 				name.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 16));
 				name.setHorizontalAlignment(JLabel.RIGHT);
 				name.setOpaque(true);
@@ -141,9 +141,9 @@ public class DrinkOrderPanel extends JPanel {
 
 			JButton searchButton = new JButton("검색");
 			search.add(searchButton, BorderLayout.EAST);
-			searchButton.setForeground(new Color(255, 255, 255));
-			searchButton.setBackground(new Color(133, 175, 75));
-	        searchButton.setBorderPainted(false);
+			searchButton.setForeground(Color.WHITE);
+			searchButton.setBackground(Main.THEMECOLOR);
+			searchButton.setBorderPainted(false);
 			searchButton.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 16));
 			searchButton.addActionListener(new ActionListener() {
 				@Override
@@ -174,12 +174,12 @@ public class DrinkOrderPanel extends JPanel {
 		orderList = new JTextArea(0, 36);
 		confirmation.add(orderList, BorderLayout.CENTER);
 		orderList.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		
+
 		cost = new JLabel();
 		confirmation.add(cost, BorderLayout.NORTH);
 		cost.setOpaque(true);
-		cost.setForeground(new Color(255, 255, 255));
-		cost.setBackground(new Color(133, 175, 75));
+		cost.setForeground(Color.WHITE);
+		cost.setBackground(Main.THEMECOLOR);
 		cost.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 16));
 		cost.setText(String.format("총 금액: %6d원", Cafe.cost));
 		cost.setPreferredSize(new Dimension(0, 50));
@@ -187,9 +187,9 @@ public class DrinkOrderPanel extends JPanel {
 
 		orderButton = new JButton("주문");
 		confirmation.add(orderButton, BorderLayout.SOUTH);
-		orderButton.setForeground(new Color(255, 255, 255));
-		orderButton.setBackground(new Color(133, 175, 75));
-        orderButton.setBorderPainted(false);
+		orderButton.setForeground(Color.WHITE);
+		orderButton.setBackground(Main.THEMECOLOR);
+		orderButton.setBorderPainted(false);
 		orderButton.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 16));
 		orderButton.addActionListener(new ActionListener() {
 			@Override

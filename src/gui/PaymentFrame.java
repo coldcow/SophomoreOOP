@@ -1,15 +1,31 @@
 package gui;
 
-import java.awt.*;
-import java.awt.event.*;
+import bgc.*;
+import java.awt.EventQueue;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.BorderLayout;
+
+import mng.Manager;
+import bgc.User;
+import bgc.Cafe;
+import bgc.Order;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.*;
-import javax.swing.table.*;
+import javax.swing.table.DefaultTableModel;
 
-import bgc.*;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 
-public class PaymentSelection extends JFrame {
+public class PaymentFrame extends JFrame {
 
 	// private JFrame frame;
 	static User user = Cafe.user;
@@ -30,9 +46,10 @@ public class PaymentSelection extends JFrame {
 	/**
 	 * Create the application.
 	 */
-	public PaymentSelection() {
+	public PaymentFrame() {
 		initialize();
 		setVisible(true);
+		setLocationRelativeTo(null);
 	}
 
 	/**
@@ -50,7 +67,8 @@ public class PaymentSelection extends JFrame {
 		// frame = new JFrame();
 
 		setBounds(100, 100, 320, 560);
-		getContentPane().setBackground(new Color(255, 255, 255));
+		setLocationRelativeTo(null);
+		getContentPane().setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 
@@ -69,7 +87,26 @@ public class PaymentSelection extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Cafe.order.addOrderToFile(Main.openFile("order.txt"));
-				JOptionPane.showMessageDialog(null, "결제가 완료되었습니다 감사합니다.");
+				UIManager UI = new UIManager();
+				UI.put("OptionPane.background", Color.white);
+				UI.put("Panel.background", Color.white);
+				JLabel label = new JLabel("결제가 완료되었습니다 감사합니다.");
+				label.setBackground(Color.WHITE);
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+				JButton button = new JButton("확인");
+				button.setForeground(Color.WHITE);
+				button.setBackground(Main.THEMECOLOR);
+				button.setBorderPainted(false);
+				button.addActionListener(new ActionListener() {
+				   @Override
+				   public void actionPerformed(ActionEvent actionEvent) {
+				       JOptionPane.getRootFrame().dispose();
+				   }
+				});
+				JButton[] buttons = { button };
+				JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+				
 				dispose();
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
@@ -95,13 +132,32 @@ public class PaymentSelection extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (user.mileage == 0) {
-					JOptionPane.showMessageDialog(null, "적립된 마일리지가 없습니다.");
+					UIManager UI = new UIManager();
+					UI.put("OptionPane.background", Color.white);
+					UI.put("Panel.background", Color.white);
+					JLabel label = new JLabel("적립된 마일리지가 없습니다.");
+					label.setBackground(Color.WHITE);
+					label.setHorizontalAlignment(SwingConstants.CENTER);
+					label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+					JButton button = new JButton("확인");
+					button.setForeground(Color.WHITE);
+					button.setBackground(Main.THEMECOLOR);
+					button.setBorderPainted(false);
+					button.addActionListener(new ActionListener() {
+					   @Override
+					   public void actionPerformed(ActionEvent actionEvent) {
+					       JOptionPane.getRootFrame().dispose();
+					   }
+					});
+					JButton[] buttons = { button };
+					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					
 				} else {
 					// new PointSelection();
 					EventQueue.invokeLater(new Runnable() {
 						public void run() {
 							try {
-								PointSelection window = new PointSelection();
+								PointPaymentFrame window = new PointPaymentFrame();
 								window.setVisible(true);
 							} catch (Exception e) {
 								e.printStackTrace();

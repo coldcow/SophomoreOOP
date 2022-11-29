@@ -43,6 +43,7 @@ public class LoginFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginFrame() {
+		setLocationRelativeTo(null);
 		// icon = new
 		// ImageIcon("C:\\Users\\USER\\Desktop\\JAVA\\BoardGame\\door116_001.jpg");
 		// icon = new
@@ -72,7 +73,7 @@ public class LoginFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		getContentPane().setBackground(new Color(255, 255, 255));
+		getContentPane().setBackground(Color.WHITE);
 
 		ImageIcon gbIcn = new ImageIcon("img/KakaoTalk_20221126_180031678_01.jpg");
 		Image gbImg = gbIcn.getImage(); // ImageIcon을 Image로 변환.
@@ -91,7 +92,7 @@ public class LoginFrame extends JFrame {
 
 //        JLabel lblLogin = new JLabel("username");
 //        lblLogin.setFont(new Font("굴림", Font.BOLD, 21));
-//        lblLogin.setForeground(new Color(255, 255, 255));
+//        lblLogin.setForeground(Color.WHITE);
 //        lblLogin.setBounds(41, 52, 104, 35);
 //        contentPane.add(lblLogin);
 		JLabel lblNewLabel_3 = new JLabel("아이디");
@@ -101,7 +102,7 @@ public class LoginFrame extends JFrame {
 
 //        JLabel lblPassword = new JLabel("Password");
 //        lblPassword.setFont(new Font("굴림", Font.BOLD, 21));
-//        lblPassword.setForeground(new Color(255, 255, 255));
+//        lblPassword.setForeground(Color.WHITE);
 //        lblPassword.setBounds(41, 103, 104, 35);
 //        contentPane.add(lblPassword);
 		JLabel lblNewLabel_4 = new JLabel("비밀번호");
@@ -125,7 +126,7 @@ public class LoginFrame extends JFrame {
 		getContentPane().add(lblNewLabel_7);
 
 		JLabel lblNewLabel_8 = new JLabel("그린버튼의 회원이 되어 다양한 재미를 맛보세요!");
-		lblNewLabel_8.setForeground(new Color(133, 175, 75));
+		lblNewLabel_8.setForeground(Main.THEMECOLOR);
 		lblNewLabel_8.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		lblNewLabel_8.setBounds(493, 373, 261, 24);
 		getContentPane().add(lblNewLabel_8);
@@ -134,8 +135,8 @@ public class LoginFrame extends JFrame {
 //        registerBtn.setBounds(229, 154, 104, 29);
 //        contentPane.add(registerBtn);
 		registerBtn = new JButton("회원가입하기");
-		registerBtn.setForeground(new Color(255, 255, 255));
-		registerBtn.setBackground(new Color(133, 175, 75));
+		registerBtn.setForeground(Color.WHITE);
+		registerBtn.setBackground(Main.THEMECOLOR);
 		registerBtn.setBorderPainted(false);
 		registerBtn.setBounds(493, 407, 291, 23);
 		getContentPane().add(registerBtn);
@@ -144,14 +145,14 @@ public class LoginFrame extends JFrame {
 //        loginBtn.setBounds(108, 154, 106, 29);
 //        contentPane.add(loginBtn);
 		loginBtn = new JButton("로그인");
-		loginBtn.setBackground(new Color(133, 175, 75));
-		loginBtn.setForeground(new Color(255, 255, 255));
+		loginBtn.setBackground(Main.THEMECOLOR);
+		loginBtn.setForeground(Color.WHITE);
 		loginBtn.setBounds(687, 186, 97, 71);
 		loginBtn.setBorderPainted(false);
 		getContentPane().add(loginBtn);
 
 		JLabel gbLabel1 = new JLabel("그린버튼입니다.");
-		gbLabel1.setForeground(new Color(133, 175, 75));
+		gbLabel1.setForeground(Main.THEMECOLOR);
 		gbLabel1.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 31));
 		gbLabel1.setBounds(414, 64, 295, 38);
 		getContentPane().add(gbLabel1);
@@ -163,7 +164,7 @@ public class LoginFrame extends JFrame {
 
 		JLabel gbLabel2 = new JLabel("어서오세요!");
 		gbLabel2.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 31));
-		gbLabel2.setForeground(new Color(133, 175, 75));
+		gbLabel2.setForeground(Main.THEMECOLOR);
 		gbLabel2.setBounds(414, 34, 295, 38);
 		getContentPane().add(gbLabel2);
 
@@ -209,7 +210,28 @@ public class LoginFrame extends JFrame {
 
 				Cafe.user = Cafe.userManager.find(tfUsername.getText());
 				if (Cafe.user != null && Cafe.user.password.equals(tfPassword.getText())) {
-					JOptionPane.showMessageDialog(null, "로그인에 성공하셨습니다.");
+					UIManager UI = new UIManager();
+					UI.put("OptionPane.background", Color.white);
+					UI.put("Panel.background", Color.white);
+					JLabel label = new JLabel("로그인에 성공하셨습니다.");
+					label.setBackground(Color.WHITE);
+					label.setHorizontalAlignment(SwingConstants.CENTER);
+					label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+					JButton button = new JButton("확인");
+					button.setForeground(Color.WHITE);
+					button.setBackground(Main.THEMECOLOR);
+					button.setBorderPainted(false);
+					button.addActionListener(new ActionListener() {
+					   @Override
+					   public void actionPerformed(ActionEvent actionEvent) {
+					       JOptionPane.getRootFrame().dispose();
+					   }
+					});
+					JButton[] buttons = { button };
+					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					
+					//JOptionPane.showMessageDialog(null, label, "ALERT", JOptionPane.WARNING_MESSAGE);
+					// JOptionPane.showMessageDialog(null, "로그인에 성공하셨습니다.");
 					Cafe.order = new Order(Cafe.user.identifier);
 					dispose();
 					EventQueue.invokeLater(new Runnable() {
@@ -217,7 +239,6 @@ public class LoginFrame extends JFrame {
 							try {
 								RoomSelectionFrame window = new RoomSelectionFrame();
 								window.setVisible(true);
-								setVisible(false);
 							} catch (Exception e) {
 								e.printStackTrace();
 							}

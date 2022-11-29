@@ -4,23 +4,24 @@ import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
 import bgc.*;
 
-public class OrderSelectionFrame extends JFrame {
+public class MenuFrame extends JFrame {
 	JPanel contentPane;
 
-	public OrderSelectionFrame() {
-		setForeground(new Color(255, 255, 255));
-		setBackground(new Color(255, 255, 255));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTitle("주문 선택");
+	public MenuFrame() {
+		setTitle("메뉴 선택");
+		setLocationRelativeTo(null);
 		setSize(1600, 900);
+		setLocation(0, 0);
+		setForeground(Color.WHITE);
+		setBackground(Color.WHITE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		contentPane = new JPanel(new BorderLayout());
 		setContentPane(contentPane);
-		contentPane.setBackground(new Color(255, 255, 255));
+		contentPane.setBackground(Color.WHITE);
 
 		JPanel main = new JPanel(new BorderLayout());
 		contentPane.add(main, BorderLayout.CENTER);
@@ -29,27 +30,27 @@ public class OrderSelectionFrame extends JFrame {
 		JPanel information = new JPanel(new GridLayout(1, 4));
 		main.add(information, BorderLayout.NORTH);
 		information.setPreferredSize(new Dimension(1200, 100));
-		information.setBackground(new Color(133, 175, 75));
+		information.setBackground(Main.THEMECOLOR);
 
 		JLabel lblNewLabel = new JLabel("ID: " + Cafe.user.identifier);
-		lblNewLabel.setBorder(BorderFactory.createLineBorder(new Color(133, 175, 75), 10));
+		lblNewLabel.setBorder(BorderFactory.createLineBorder(Main.THEMECOLOR, 10));
 		information.add(lblNewLabel);
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBackground(new Color(133, 175, 75));
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setBackground(Main.THEMECOLOR);
 		lblNewLabel.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 24));
 
 		JLabel lblNewLabel_1 = new JLabel("남은 시간: ");
-		lblNewLabel_1.setBorder(BorderFactory.createLineBorder(new Color(133, 175, 75), 10));
+		lblNewLabel_1.setBorder(BorderFactory.createLineBorder(Main.THEMECOLOR, 10));
 		information.add(lblNewLabel_1);
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBackground(new Color(133, 175, 75));
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setBackground(Main.THEMECOLOR);
 		lblNewLabel_1.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 24));
 
 		JLabel lblNewLabel_2 = new JLabel(String.format("%d번 방", Cafe.room.number));
-		lblNewLabel_2.setBorder(BorderFactory.createLineBorder(new Color(133, 175, 75), 10));
+		lblNewLabel_2.setBorder(BorderFactory.createLineBorder(Main.THEMECOLOR, 10));
 		information.add(lblNewLabel_2);
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setBackground(new Color(133, 175, 75));
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setBackground(Main.THEMECOLOR);
 		lblNewLabel_2.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 24));
 
 		ImageIcon gbIcn = new ImageIcon("img/KakaoTalk_20221126_180031678_02.jpg");
@@ -59,11 +60,11 @@ public class OrderSelectionFrame extends JFrame {
 
 		JLabel logo = new JLabel();
 		logo.setIcon(greenbttnIcon);
-		logo.setBorder(BorderFactory.createLineBorder(new Color(133, 175, 75), 10));
+		logo.setBorder(BorderFactory.createLineBorder(Main.THEMECOLOR, 10));
 		information.add(logo);
 
 		JPanel newpanel = new JPanel(new BorderLayout());
-		newpanel.setBackground(new Color(255, 255, 255));
+		newpanel.setBackground(Color.WHITE);
 		main.add(newpanel, BorderLayout.CENTER);
 
 		DrinkOrderPanel dp = new DrinkOrderPanel();
@@ -72,17 +73,17 @@ public class OrderSelectionFrame extends JFrame {
 		JPanel buttonList = new JPanel(new GridLayout(4, 0));
 		contentPane.add(buttonList, BorderLayout.EAST);
 		buttonList.setPreferredSize(new Dimension(400, 900));
-		buttonList.setBackground(new Color(255, 255, 255));
-		buttonList.setBorder(BorderFactory.createLineBorder(new Color(133, 175, 75), 2));
+		buttonList.setBackground(Color.WHITE);
+		buttonList.setBorder(BorderFactory.createLineBorder(Main.THEMECOLOR, 2));
 
 		JPanel p = new JPanel();
-		p.setBackground(new Color(255,255,255));
-		p.setBorder(BorderFactory.createEmptyBorder(62, 0 , 63, 0));
+		p.setBackground(Color.WHITE);
+		p.setBorder(BorderFactory.createEmptyBorder(62, 0, 63, 0));
 
 		JButton btnNewButton = new JButton("보드게임");
 		btnNewButton.setPreferredSize(new Dimension(300, 100));
-		btnNewButton.setBackground(new Color(133, 175, 75));
-		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setBackground(Main.THEMECOLOR);
+		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 24));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -107,13 +108,13 @@ public class OrderSelectionFrame extends JFrame {
 		buttonList.add(p);
 
 		JPanel p2 = new JPanel();
-		p2.setBackground(new Color(255,255,255));
-		p2.setBorder(BorderFactory.createEmptyBorder(62, 0 , 63, 0));
-		
+		p2.setBackground(Color.WHITE);
+		p2.setBorder(BorderFactory.createEmptyBorder(62, 0, 63, 0));
+
 		JButton btnNewButton_2 = new JButton("음료");
 		btnNewButton_2.setPreferredSize(new Dimension(300, 100));
-		btnNewButton_2.setBackground(new Color(133, 175, 75));
-		btnNewButton_2.setForeground(new Color(255, 255, 255));
+		btnNewButton_2.setBackground(Main.THEMECOLOR);
+		btnNewButton_2.setForeground(Color.WHITE);
 		btnNewButton_2.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 24));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -138,20 +139,20 @@ public class OrderSelectionFrame extends JFrame {
 		buttonList.add(p2);
 
 		JPanel p3 = new JPanel();
-		p3.setBackground(new Color(255,255,255));
-		p3.setBorder(BorderFactory.createEmptyBorder(62, 0 , 63, 0));
-		
+		p3.setBackground(Color.WHITE);
+		p3.setBorder(BorderFactory.createEmptyBorder(62, 0, 63, 0));
+
 		JButton btnNewButton_1 = new JButton("결제");
 		btnNewButton_1.setPreferredSize(new Dimension(300, 100));
-		btnNewButton_1.setBackground(new Color(133, 175, 75));
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
+		btnNewButton_1.setBackground(Main.THEMECOLOR);
+		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 24));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							PaymentSelection window = new PaymentSelection();
+							PaymentFrame window = new PaymentFrame();
 							window.setVisible(true);
 							dispose();
 						} catch (Exception e) {
@@ -167,13 +168,13 @@ public class OrderSelectionFrame extends JFrame {
 		buttonList.add(p3);
 
 		JPanel p4 = new JPanel();
-		p4.setBackground(new Color(255,255,255));
-		p4.setBorder(BorderFactory.createEmptyBorder(62, 0 , 63, 0));
-		
+		p4.setBackground(Color.WHITE);
+		p4.setBorder(BorderFactory.createEmptyBorder(62, 0, 63, 0));
+
 		JButton btnNewButton_3 = new JButton("미니게임");
 		btnNewButton_3.setPreferredSize(new Dimension(300, 100));
-		btnNewButton_3.setBackground(new Color(133, 175, 75));
-		btnNewButton_3.setForeground(new Color(255, 255, 255));
+		btnNewButton_3.setBackground(Main.THEMECOLOR);
+		btnNewButton_3.setForeground(Color.WHITE);
 		btnNewButton_3.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 24));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

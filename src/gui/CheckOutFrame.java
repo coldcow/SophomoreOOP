@@ -9,27 +9,27 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class CheckOut extends JFrame {
-	CheckOut() {
-		super("CheckOut");
-		JPanel pane = makeCheckOutPane();
+public class CheckOutFrame extends JFrame {
+	CheckOutFrame() {
+		super("CheckOutFrame");
+		JPanel pane = makeCheckOutFramePane();
 		add(pane); // JFrame에 jp라는 패널 추가
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
 
-	private JPanel makeCheckOutPane() {
+	private JPanel makeCheckOutFramePane() {
 		JPanel pane = new JPanel();
 
 		JButton jbPayment = new JButton("결제");
 		jbPayment.addActionListener(event -> {
-			checkOutEventHandler(event);
+			CheckOutFrameEventHandler(event);
 		});
 		pane.add(jbPayment); // pane이라는 패널에 jb라는 버튼 추가
 
 		JButton jbPoint = new JButton("적립금 사용");
 		jbPoint.addActionListener(event -> {
-			checkOutEventHandler(event);
+			CheckOutFrameEventHandler(event);
 		});
 		pane.add(jbPoint); // pane이라는 패널에 jb라는 버튼 추가
 
@@ -47,7 +47,7 @@ public class CheckOut extends JFrame {
 		return pane;
 	}
 
-	private void checkOutEventHandler(ActionEvent event) {
+	private void CheckOutFrameEventHandler(ActionEvent event) {
 		// TODO Auto-generated method stub
 		String num = null;
 		num = event.getActionCommand();

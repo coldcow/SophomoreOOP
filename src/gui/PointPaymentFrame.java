@@ -1,28 +1,35 @@
 package gui;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.io.File;
-
-import javax.swing.*;
 
 import bgc.*;
+import java.awt.EventQueue;
 
-public class PointSelection extends JFrame {
+import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+public class PointPaymentFrame extends JFrame {
 	private JTextField textField;
 
 	/**
 	 * Launch the application.
 	 */
 
-	public PointSelection() {
+	public PointPaymentFrame() {
 		initialize();
 		setVisible(true);
 	}
 
 	private void initialize() {
 		setBounds(100, 100, 320, 345);
-		getContentPane().setBackground(new Color(255, 255, 255));
+		setLocationRelativeTo(null);
+		getContentPane().setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 
@@ -45,7 +52,7 @@ public class PointSelection extends JFrame {
 		panel.setBounds(12, 117, 280, 55);
 		getContentPane().add(panel);
 
-		JLabel lblNewLabel = new JLabel(PaymentSelection.user.identifier);
+		JLabel lblNewLabel = new JLabel(PaymentFrame.user.identifier);
 		lblNewLabel.setFont(new Font("나눔고딕", Font.BOLD, 15));
 		panel.add(lblNewLabel);
 
@@ -53,7 +60,7 @@ public class PointSelection extends JFrame {
 		lblNewLabel_1.setFont(new Font("나눔고딕", Font.PLAIN, 15));
 		panel.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("" + PaymentSelection.user.mileage);
+		JLabel lblNewLabel_2 = new JLabel("" + PaymentFrame.user.mileage);
 		lblNewLabel_2.setFont(new Font("나눔고딕", Font.BOLD, 15));
 		panel.add(lblNewLabel_2);
 		JLabel lblNewLabel_3 = new JLabel("입니다.");
@@ -80,7 +87,7 @@ public class PointSelection extends JFrame {
 		getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 
-		JLabel lblNewLabel_5 = new JLabel("금액 " + PaymentSelection.cost + " 원");
+		JLabel lblNewLabel_5 = new JLabel("금액 " + PaymentFrame.cost + " 원");
 		lblNewLabel_5.setBounds(12, 10, 137, 39);
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5.setFont(new Font("나눔고딕", Font.BOLD, 16));
@@ -100,14 +107,52 @@ public class PointSelection extends JFrame {
 				if (!textField.getText().equals(""))
 					x = Integer.parseInt(textField.getText());
 
-				if (PaymentSelection.user.mileage < x) {
-					JOptionPane.showMessageDialog(null, "마일리지가 부족합니다.");
+				if (PaymentFrame.user.mileage < x) {
+					UIManager UI = new UIManager();
+					UI.put("OptionPane.background", Color.white);
+					UI.put("Panel.background", Color.white);
+					JLabel label = new JLabel("마일리지가 부족합니다.");
+					label.setBackground(Color.WHITE);
+					label.setHorizontalAlignment(SwingConstants.CENTER);
+					label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+					JButton button = new JButton("확인");
+					button.setForeground(Color.WHITE);
+					button.setBackground(Main.THEMECOLOR);
+					button.setBorderPainted(false);
+					button.addActionListener(new ActionListener() {
+					   @Override
+					   public void actionPerformed(ActionEvent actionEvent) {
+					       JOptionPane.getRootFrame().dispose();
+					   }
+					});
+					JButton[] buttons = { button };
+					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					
 					// dispose();
 				} else {
-					Payment.useMileage(PaymentSelection.user, PaymentSelection.cost, x);
+					Payment.useMileage(PaymentFrame.user, PaymentFrame.cost, x);
 					Cafe.order.addOrderToFile(Main.openFile("order.txt"));
 					Cafe.userManager.writeAll(new File("user.txt"));
-					JOptionPane.showMessageDialog(null, "결제가 완료되었습니다 감사합니다.");
+					UIManager UI = new UIManager();
+					UI.put("OptionPane.background", Color.white);
+					UI.put("Panel.background", Color.white);
+					JLabel label = new JLabel("결제가 완료되었습니다 감사합니다.");
+					label.setBackground(Color.WHITE);
+					label.setHorizontalAlignment(SwingConstants.CENTER);
+					label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+					JButton button = new JButton("확인");
+					button.setForeground(Color.WHITE);
+					button.setBackground(Main.THEMECOLOR);
+					button.setBorderPainted(false);
+					button.addActionListener(new ActionListener() {
+					   @Override
+					   public void actionPerformed(ActionEvent actionEvent) {
+					       JOptionPane.getRootFrame().dispose();
+					   }
+					});
+					JButton[] buttons = { button };
+					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					
 					dispose();
 					EventQueue.invokeLater(new Runnable() {
 						public void run() {

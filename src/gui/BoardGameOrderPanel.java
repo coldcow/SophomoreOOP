@@ -13,32 +13,31 @@ import layout.*;
 
 public class BoardGameOrderPanel extends JPanel {
 	private JPanel selection;
-		private JPanel logo;
-		private JTabbedPane tappedPane;
-			JPanel panel;
-			JScrollPane scrollPane;
-				JPanel boardGameList;
-					JPanel boardGame;
-						JLabel image;
-						JLabel name;
-			JPanel search;
-				JTextField searchBar;
-				JButton searchButton;
+	private JTabbedPane tappedPane;
+	JPanel panel;
+	JScrollPane scrollPane;
+	JPanel boardGameList;
+	JPanel boardGame;
+	JLabel image;
+	JLabel name;
+	JPanel search;
+	JTextField searchBar;
+	JButton searchButton;
 	private JPanel confirmation;
-		private JTextArea orderList;
-		private JButton orderButton;
+	private JTextArea orderList;
+	private JButton orderButton;
 
 	public BoardGameOrderPanel() {
 		setLayout(new BorderLayout());
-		
+
 		selection = new JPanel(new BorderLayout());
 		add(selection, BorderLayout.CENTER);
-		selection.setBackground(new Color(255, 255, 255));
+		selection.setBackground(Color.WHITE);
 
 		tappedPane = new JTabbedPane();
 		selection.add(tappedPane, BorderLayout.CENTER);
-		tappedPane.setForeground(new Color(255, 255, 255));
-		tappedPane.setBackground(new Color(133, 175, 75));
+		tappedPane.setForeground(Color.WHITE);
+		tappedPane.setBackground(Main.THEMECOLOR);
 		tappedPane.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 16));
 
 		ArrayList<String> tabLabels = new ArrayList<>();
@@ -57,9 +56,9 @@ public class BoardGameOrderPanel extends JPanel {
 		for (String tabLabel : tabLabels) {
 			panel = new JPanel(new BorderLayout());
 			tappedPane.addTab(tabLabel, panel);
-			
+
 			JPanel boardGameList = new JPanel();
-			boardGameList.setBackground(new Color(255, 255, 255));
+			boardGameList.setBackground(Color.WHITE);
 			boardGameList.setLayout(new ModifiedFlowLayout(ModifiedFlowLayout.LEADING));
 			scrollPane = new JScrollPane(boardGameList, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 					JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -104,8 +103,8 @@ public class BoardGameOrderPanel extends JPanel {
 
 				name = new JLabel(boardGame.name);
 				this.boardGame.add(name, BorderLayout.SOUTH);
-				name.setForeground(new Color(255, 255, 255));
-				name.setBackground(new Color(133, 175, 75));
+				name.setForeground(Color.WHITE);
+				name.setBackground(Main.THEMECOLOR);
 				name.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 16));
 				name.setHorizontalAlignment(JLabel.RIGHT);
 				name.setBorder(BorderFactory.createLineBorder(name.getBackground(), 2));
@@ -122,9 +121,9 @@ public class BoardGameOrderPanel extends JPanel {
 
 			JButton searchButton = new JButton("검색");
 			search.add(searchButton, BorderLayout.EAST);
-	        searchButton.setForeground(new Color(255, 255, 255));
-			searchButton.setBackground(new Color(133, 175, 75));
-	        searchButton.setBorderPainted(false);
+			searchButton.setForeground(Color.WHITE);
+			searchButton.setBackground(Main.THEMECOLOR);
+			searchButton.setBorderPainted(false);
 			searchButton.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 16));
 			searchButton.addActionListener(new ActionListener() {
 				@Override
@@ -158,9 +157,9 @@ public class BoardGameOrderPanel extends JPanel {
 
 		orderButton = new JButton("대여");
 		confirmation.add(orderButton, BorderLayout.SOUTH);
-		orderButton.setForeground(new Color(255, 255, 255));
-		orderButton.setBackground(new Color(133, 175, 75));
-        orderButton.setBorderPainted(false);
+		orderButton.setForeground(Color.WHITE);
+		orderButton.setBackground(Main.THEMECOLOR);
+		orderButton.setBorderPainted(false);
 		orderButton.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 16));
 		orderButton.addActionListener(new ActionListener() {
 			@Override
