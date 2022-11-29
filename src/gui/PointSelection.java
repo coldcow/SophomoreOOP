@@ -1,18 +1,12 @@
-package bgc;
+package gui;
 
-import layout.LoginFrame;
-
-import java.awt.EventQueue;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.File;
 
 import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
+
+import bgc.*;
 
 public class PointSelection extends JFrame {
 	private JTextField textField;

@@ -1,28 +1,13 @@
-package bgc;
+package gui;
 
-import java.awt.EventQueue;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.BorderLayout;
-
-import layout.LoginFrame;
-import mng.Manager;
-import bgc.User;
-import bgc.Order;
-
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 import java.util.ArrayList;
 
-import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
+import javax.swing.table.*;
 
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
+import bgc.*;
 
 public class PaymentSelection extends JFrame {
 

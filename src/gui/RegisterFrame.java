@@ -1,4 +1,5 @@
-package layout;
+package gui;
+
 import java.awt.EventQueue;
 
 import java.awt.Font;
@@ -17,11 +18,11 @@ import javax.swing.border.EmptyBorder;
 import bgc.Cafe;
 import bgc.User;
 
-public class JoinFrame extends JFrame {
+public class RegisterFrame extends JFrame {
 
     private JPanel contentPane;
-    private JLabel lblJoin;
-    private JButton joinCompleteBtn;
+    private JLabel lblregister;
+    private JButton registerCompleteBtn;
     private JTextField tfUsername;
     private JTextField tfPassword;
     private JTextField tfAge;
@@ -33,7 +34,7 @@ public class JoinFrame extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    JoinFrame joinFrame = new JoinFrame();
+                    RegisterFrame registerFrame = new RegisterFrame();
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -45,7 +46,7 @@ public class JoinFrame extends JFrame {
     /**
      * Create the frame.
      */
-    public JoinFrame() {
+    public RegisterFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(430, 390);
         setLocation(1150,365);
@@ -54,11 +55,11 @@ public class JoinFrame extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        lblJoin = new JLabel("회원가입");
+        lblregister = new JLabel("회원가입");
         Font f1 = new Font("돋움", Font.BOLD, 20); //궁서 바탕 돋움
-        lblJoin.setFont(f1);
-        lblJoin.setBounds(159, 41, 101, 20);
-        contentPane.add(lblJoin);
+        lblregister.setFont(f1);
+        lblregister.setBounds(159, 41, 101, 20);
+        contentPane.add(lblregister);
 
         JLabel lblUsername = new JLabel("password");
         lblUsername.setBounds(69, 163, 69, 20);
@@ -89,13 +90,13 @@ public class JoinFrame extends JFrame {
         contentPane.add(tfAge);
 
 
-        joinCompleteBtn = new JButton("회원가입완료");
-        joinCompleteBtn.setBounds(206, 256, 139, 29);
-        contentPane.add(joinCompleteBtn);
+        registerCompleteBtn = new JButton("회원가입완료");
+        registerCompleteBtn.setBounds(206, 256, 139, 29);
+        contentPane.add(registerCompleteBtn);
 
         setVisible(true);
         //회원가입완료 액션
-        joinCompleteBtn.addActionListener(new ActionListener() {
+        registerCompleteBtn.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
