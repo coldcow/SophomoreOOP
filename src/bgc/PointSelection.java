@@ -28,6 +28,7 @@ public class PointSelection extends JFrame {
 
 	private void initialize() {
 		setBounds(100, 100, 320, 345);
+		setLocationRelativeTo(null);
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);

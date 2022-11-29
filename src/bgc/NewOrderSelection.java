@@ -43,6 +43,7 @@ public class NewOrderSelection extends JFrame{
         //frame = new JFrame();
         setTitle("주문 선택");
         setSize( 450, 300);
+        setLocationRelativeTo(null);
         getContentPane().setLayout(null);
 
         JButton btnNewButton = new JButton("보드게임");

@@ -27,6 +27,7 @@ public class RoomSelection extends JFrame{
 	
     public RoomSelection() {
         setBounds(100, 100, 821, 536);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setBackground(new Color(255, 255, 255));
         getContentPane().setLayout(null);

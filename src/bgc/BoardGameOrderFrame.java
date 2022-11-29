@@ -66,6 +66,7 @@ public class BoardGameOrderFrame extends JFrame {
 	public BoardGameOrderFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1600, 900);
+		setLocationRelativeTo(null);
 
 		contentPane = new JPanel(new BorderLayout());
 		setContentPane(contentPane);

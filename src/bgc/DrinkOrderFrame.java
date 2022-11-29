@@ -60,6 +60,7 @@ public class DrinkOrderFrame extends JFrame {
 	public DrinkOrderFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1600, 900);
+		setLocationRelativeTo(null);
 
 		contentPane = new JPanel(new BorderLayout());
 		setContentPane(contentPane);
@@ -182,7 +183,7 @@ public class DrinkOrderFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent exception) {
 				for (String string : orderList.getText().split("\n")) {
-					Cafe.order.orderedName.add(string.split("\t")[0]);
+					Cafe.order.orderedName.add(string.split("\t")[1]);
 					setVisible(false);
 				}
 			}
