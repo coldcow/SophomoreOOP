@@ -85,7 +85,26 @@ public class PaymentSelection extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Cafe.order.addOrderToFile(Main.openFile("order.txt"));
-				JOptionPane.showMessageDialog(null, "결제가 완료되었습니다 감사합니다.");
+				UIManager UI = new UIManager();
+				UI.put("OptionPane.background", Color.white);
+				UI.put("Panel.background", Color.white);
+				JLabel label = new JLabel("결제가 완료되었습니다 감사합니다.");
+				label.setBackground(new Color(255, 255, 255));
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+				JButton button = new JButton("확인");
+				button.setForeground(new Color(255, 255, 255));
+				button.setBackground(new Color(133, 175, 75));
+				button.setBorderPainted(false);
+				button.addActionListener(new ActionListener() {
+				   @Override
+				   public void actionPerformed(ActionEvent actionEvent) {
+				       JOptionPane.getRootFrame().dispose();
+				   }
+				});
+				JButton[] buttons = { button };
+				JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+				
 				dispose();
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
@@ -111,7 +130,26 @@ public class PaymentSelection extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (user.mileage == 0) {
-					JOptionPane.showMessageDialog(null, "적립된 마일리지가 없습니다.");
+					UIManager UI = new UIManager();
+					UI.put("OptionPane.background", Color.white);
+					UI.put("Panel.background", Color.white);
+					JLabel label = new JLabel("적립된 마일리지가 없습니다.");
+					label.setBackground(new Color(255, 255, 255));
+					label.setHorizontalAlignment(SwingConstants.CENTER);
+					label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+					JButton button = new JButton("확인");
+					button.setForeground(new Color(255, 255, 255));
+					button.setBackground(new Color(133, 175, 75));
+					button.setBorderPainted(false);
+					button.addActionListener(new ActionListener() {
+					   @Override
+					   public void actionPerformed(ActionEvent actionEvent) {
+					       JOptionPane.getRootFrame().dispose();
+					   }
+					});
+					JButton[] buttons = { button };
+					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					
 				} else {
 					// new PointSelection();
 					EventQueue.invokeLater(new Runnable() {

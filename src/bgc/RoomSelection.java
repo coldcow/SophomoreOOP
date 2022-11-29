@@ -295,6 +295,7 @@ public class RoomSelection extends JFrame{
             public void actionPerformed(ActionEvent e) {
             	NewOrderSelection newOrderSelection = new NewOrderSelection();
 				newOrderSelection.setVisible(true);
+				setVisible(false);
             }
         });
         btnNewButton_8.setForeground(Color.WHITE);

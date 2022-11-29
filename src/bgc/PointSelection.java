@@ -108,13 +108,51 @@ public class PointSelection extends JFrame {
 					x = Integer.parseInt(textField.getText());
 
 				if (PaymentSelection.user.mileage < x) {
-					JOptionPane.showMessageDialog(null, "마일리지가 부족합니다.");
+					UIManager UI = new UIManager();
+					UI.put("OptionPane.background", Color.white);
+					UI.put("Panel.background", Color.white);
+					JLabel label = new JLabel("마일리지가 부족합니다.");
+					label.setBackground(new Color(255, 255, 255));
+					label.setHorizontalAlignment(SwingConstants.CENTER);
+					label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+					JButton button = new JButton("확인");
+					button.setForeground(new Color(255, 255, 255));
+					button.setBackground(new Color(133, 175, 75));
+					button.setBorderPainted(false);
+					button.addActionListener(new ActionListener() {
+					   @Override
+					   public void actionPerformed(ActionEvent actionEvent) {
+					       JOptionPane.getRootFrame().dispose();
+					   }
+					});
+					JButton[] buttons = { button };
+					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					
 					// dispose();
 				} else {
 					Payment.useMileage(PaymentSelection.user, PaymentSelection.cost, x);
 					Cafe.order.addOrderToFile(Main.openFile("order.txt"));
 					Cafe.userManager.writeAll(new File("user.txt"));
-					JOptionPane.showMessageDialog(null, "결제가 완료되었습니다 감사합니다.");
+					UIManager UI = new UIManager();
+					UI.put("OptionPane.background", Color.white);
+					UI.put("Panel.background", Color.white);
+					JLabel label = new JLabel("결제가 완료되었습니다 감사합니다.");
+					label.setBackground(new Color(255, 255, 255));
+					label.setHorizontalAlignment(SwingConstants.CENTER);
+					label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+					JButton button = new JButton("확인");
+					button.setForeground(new Color(255, 255, 255));
+					button.setBackground(new Color(133, 175, 75));
+					button.setBorderPainted(false);
+					button.addActionListener(new ActionListener() {
+					   @Override
+					   public void actionPerformed(ActionEvent actionEvent) {
+					       JOptionPane.getRootFrame().dispose();
+					   }
+					});
+					JButton[] buttons = { button };
+					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					
 					dispose();
 					EventQueue.invokeLater(new Runnable() {
 						public void run() {
