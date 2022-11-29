@@ -6,11 +6,11 @@ import java.util.Scanner;
 import mng.Manageable;
 
 public class BoardGame implements Manageable {
-    String name;
-    String level;
-    String genre;
-    String numberOfPlayer;
-    String time;
+    public String name;
+    public String level;
+    public String genre;
+    public String numberOfPlayer;
+    public String time;
 
     @Override
     public void read(Scanner scanner) {
@@ -41,7 +41,7 @@ public class BoardGame implements Manageable {
                 || time.contains(keyword));
     }
 
-    String[] getTexts() {
+    public String[] getTexts() {
         return new String[] { name, level, genre, numberOfPlayer, time };
     }
 }
