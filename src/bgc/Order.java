@@ -5,9 +5,9 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class Order {
-    ArrayList<String> orderedName = new ArrayList<>();
-    HashMap<String, Integer> userHistory = new HashMap<>();
-    String id;
+	public ArrayList<String> orderedName = new ArrayList<>();
+	public HashMap<String, Integer> userHistory = new HashMap<>();
+	public String id;
 
     public Order(String id) {
         this.id = id;

@@ -6,9 +6,9 @@ import java.util.Scanner;
 import mng.Manageable;
 
 public class Drink implements Manageable {
-	String type;
-	String name;
-	int price;
+	public String type;
+	public String name;
+	public int price;
 
 	@Override
 	public void read(Scanner scanner) {
@@ -28,10 +28,13 @@ public class Drink implements Manageable {
 
 	@Override
 	public boolean matches(String keyword) {
-		return (type.contains(keyword) || name.contains(keyword) || (price + "").contains(keyword));
+		return ("전체".equals(keyword) 
+				|| type.contains(keyword) 
+				|| name.contains(keyword) 
+				|| (price + "").contains(keyword));
 	}
 
-	String[] getTexts() {
+	public String[] getTexts() {
 		return new String[] { type, name, "" + price };
 	}
 }

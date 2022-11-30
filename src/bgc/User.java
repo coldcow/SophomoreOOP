@@ -8,8 +8,8 @@ import mng.Manageable;
 public class User implements Manageable {
 	public String identifier;
 	public String password;
-	int age;
-	int mileage = 0;
+	public int age;
+	public int mileage = 0;
 
 	@Override
 	public void read(Scanner scanner) {
@@ -22,7 +22,7 @@ public class User implements Manageable {
 	@Override
 	public void write(File file) {
 		try {
-			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false));
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
 			for (User user : Cafe.userManager.managees) {
 				if (file.isFile() && file.canWrite()) {
 

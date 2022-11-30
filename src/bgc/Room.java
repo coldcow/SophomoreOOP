@@ -6,24 +6,24 @@ import java.util.Scanner;
 import mng.Manageable;
 
 public class Room implements Manageable {
-	String number;
-	boolean availability;
-	
+	public int number;
+	public boolean availability;
+
 	@Override
 	public void read(Scanner scanner) {
-		number = scanner.next();
+		number = scanner.nextInt();
 		availability = scanner.nextBoolean();
 	}
 
 	@Override
-	public void write(File file) {		
+	public void write(File file) {
 	}
-	
+
 	@Override
 	public void print() {
-		System.out.printf("%s번 방\n", number);
+		System.out.printf("%d번 방\n", number);
 	}
-	
+
 	@Override
 	public boolean matches(String keyword) {
 		return (number + "").equals(keyword);
