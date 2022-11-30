@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 
 public class Order {
 	public ArrayList<String> orderedName = new ArrayList<>();
-	public HashMap<String, Integer> userHistory = new HashMap<>();
+	public static HashMap<String, Integer> userHistory = null;
 	public String id;
 
     public Order(String id) {
@@ -32,7 +32,7 @@ public class Order {
         }
     }
 
-    public HashMap<String, Integer> getOrderFromFile(Scanner scanner) {
+    public void getOrderFromFile(Scanner scanner) {
         String trash = null;
 
         while (scanner.hasNext()) {
@@ -54,19 +54,40 @@ public class Order {
                 trash = scanner.nextLine();
             }
         }
-        return userHistory;
     }
 
-    public void recomand(List<Entry<String, Integer>> list) {
+    public String[] recomand(List<Entry<String, Integer>> list) {
+        String[] orderList = new String[3];
         int i = 3;
         if (list.size() < 3) {
             System.out.println("데이터가 부족하여 추천이 어렵습니다.");
         }
         else {
             for (Entry<String, Integer> entry : list.subList(list.size() - 3, list.size())) {
-                System.out.println(i +" : " + entry.getKey());
+                orderList[i-1] = entry.getKey();
                 i--;
             }
+        }
+        return orderList;
+    }
+
+    public String[] returnOrders(String boardOrDrink) {
+        getOrderFromFile(Main.scanFile("order.txt"));
+        HashMap<String, Integer> boardGameMap = new HashMap<>();
+        HashMap<String, Integer> drinkMap = new HashMap<>();
+
+        for (String order : userHistory.keySet()) {
+            if (Cafe.boardGameManager.find(order) != null) {
+                boardGameMap.put(order, userHistory.get(order));
+            } else {
+                drinkMap.put(order, userHistory.get(order));
+            }
+        }
+        if (boardOrDrink.equals("board")) {
+            return recomand(Cafe.boardGameManager.sortMap(boardGameMap));
+        }
+        else {
+            return recomand(Cafe.drinkManager.sortMap(drinkMap));
         }
     }
 }
