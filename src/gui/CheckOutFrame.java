@@ -53,6 +53,7 @@ public class CheckOutFrame extends JFrame {
 		num = event.getActionCommand();
 		JFrame jf = new JFrame();
 		jf.setLocation(700, 400);
+		setLocationRelativeTo(null);
 		jf.setSize(380, 180);
 
 		if (num.equals("end")) {

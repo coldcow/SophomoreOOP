@@ -43,7 +43,6 @@ public class LoginFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginFrame() {
-		setLocationRelativeTo(null);
 		// icon = new
 		// ImageIcon("C:\\Users\\USER\\Desktop\\JAVA\\BoardGame\\door116_001.jpg");
 		// icon = new

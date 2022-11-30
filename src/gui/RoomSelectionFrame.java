@@ -36,6 +36,7 @@ public class RoomSelectionFrame extends JFrame {
 		setBounds(100, 100, 821, 536);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setBackground(new Color(255, 255, 255));
+		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("원하는 방을 선택하세요");
