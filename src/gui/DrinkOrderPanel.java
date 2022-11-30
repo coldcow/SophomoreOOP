@@ -65,6 +65,7 @@ public class DrinkOrderPanel extends JPanel {
 
 		ArrayList<String> tabLabels = new ArrayList<>();
 		tabLabels.add("전체");
+		tabLabels.add("추천");
 
 		for (Drink drink : Cafe.drinkManager.managees) {
 			String drinkType = drink.type;

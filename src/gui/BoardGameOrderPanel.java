@@ -40,7 +40,7 @@ public class BoardGameOrderPanel extends JPanel {
 		tappedPane.setBackground(Main.THEMECOLOR);
 		tappedPane.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 16));
 
-		String[] tabLabels = { "전체", "전략", "추리", "순발력", "카드" };
+		String[] tabLabels = { "전체", "추천", "전략", "추리", "순발력", "카드" };
 		// ArrayList<String> tabLabels = new ArrayList<>();
 
 		/*

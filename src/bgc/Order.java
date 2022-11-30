@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 
 public class Order {
 	public ArrayList<String> orderedName = new ArrayList<>();
-	public static HashMap<String, Integer> userHistory = null;
+	public static HashMap<String, Integer> userHistory = new HashMap<>();
 	public String id;
 
     public Order(String id) {

@@ -28,6 +28,13 @@ public class Drink implements Manageable {
 
 	@Override
 	public boolean matches(String keyword) {
+		if (keyword.equals("추천")) {
+			for (String kwd : Cafe.order.returnOrders("")) {
+				if (matches(kwd))
+					return true;
+			}
+			return false;
+		}
 		return ("전체".equals(keyword) 
 				|| type.contains(keyword) 
 				|| name.contains(keyword) 
