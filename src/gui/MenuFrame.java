@@ -26,6 +26,7 @@ public class MenuFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("주문 선택");
 		setSize(1600, 900);
+		setLocationRelativeTo(null);
 
 		contentPane = new JPanel(new BorderLayout());
 		setContentPane(contentPane);

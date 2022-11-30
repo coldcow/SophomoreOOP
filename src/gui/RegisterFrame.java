@@ -33,10 +33,10 @@ public class RegisterFrame extends JFrame {
     private JTextField tfAge;
     
     public RegisterFrame() {
-    	setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(365, 390);
         setLocation(1150,365);
+        setLocationRelativeTo(null);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
