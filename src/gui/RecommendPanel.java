@@ -33,12 +33,20 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import java.awt.FlowLayout;
+import javax.swing.SwingConstants;
 
 public class RecommendPanel extends JPanel {
-
+	String username = Cafe.user.identifier;
+	
 	public RecommendPanel() {
 		setLayout(null);
 		setBackground(Color.WHITE);
+		
+		JLabel label = new JLabel(username + "님의 데이터 기반 추천 목록입니다.");
+		label.setFont(new Font("나눔고딕", Font.PLAIN, 13));
+		label.setHorizontalAlignment(SwingConstants.LEFT);
+		label.setBounds(12, 770, 1176, 30);
+		add(label);
 
 		JPanel panel = new JPanel();
 		panel.setBounds(606, 28, 582, 45);
@@ -54,7 +62,7 @@ public class RecommendPanel extends JPanel {
 		flowLayout.setVgap(10);
 		flowLayout.setHgap(150);
 		panel_1.setBackground(Color.WHITE);
-		panel_1.setBounds(606, 110, 582, 680);
+		panel_1.setBounds(606, 110, 582, 660);
 		add(panel_1);
 
 		JPanel panel_7 = new JPanel();
@@ -99,7 +107,7 @@ public class RecommendPanel extends JPanel {
 		flowLayout_1.setVgap(10);
 		flowLayout_1.setHgap(150);
 		panel_1_1.setBackground(Color.WHITE);
-		panel_1_1.setBounds(12, 110, 582, 680);
+		panel_1_1.setBounds(12, 110, 582, 660);
 		add(panel_1_1);
 
 		JPanel panel_6 = new JPanel();
@@ -155,7 +163,7 @@ public class RecommendPanel extends JPanel {
 
 		JPanel panel_5 = new JPanel();
 		panel_5.setBackground(Main.THEMECOLOR);
-		panel_5.setBounds(599, 110, 2, 680);
+		panel_5.setBounds(599, 110, 2, 660);
 		add(panel_5);
 
 		JPanel panel_3 = new JPanel();

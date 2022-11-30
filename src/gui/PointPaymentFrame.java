@@ -29,7 +29,7 @@ public class PointPaymentFrame extends JFrame {
 	private void initialize() {
 		setBounds(100, 100, 320, 345);
 		setLocationRelativeTo(null);
-		setTitle("그린버튼 포인트적립 시스템");
+		setTitle("그린버튼 포인트적립");
 		getContentPane().setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
