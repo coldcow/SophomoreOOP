@@ -1,8 +1,10 @@
-package bgc;
+package gui;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import bgc.Main;
 
 public class MiniGamePanel extends JPanel {
     GoEgg goEgg[][];
@@ -78,10 +80,48 @@ public class MiniGamePanel extends JPanel {
         }
         if (count == 5) {
             if (e.state.equals("B")) {
-                JOptionPane.showMessageDialog(null, "흑돌 승리", "흑돌 승리", JOptionPane.QUESTION_MESSAGE);
+            	UIManager UI = new UIManager();
+				UI.put("OptionPane.background", Color.white);
+				UI.put("Panel.background", Color.white);
+				JLabel label = new JLabel("흑돌 승리");
+				label.setBackground(Color.WHITE);
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+				JButton button = new JButton("확인");
+				button.setForeground(Color.WHITE);
+				button.setBackground(Main.THEMECOLOR);
+				button.setBorderPainted(false);
+				button.addActionListener(new ActionListener() {
+				   @Override
+				   public void actionPerformed(ActionEvent actionEvent) {
+				       JOptionPane.getRootFrame().dispose();
+				   }
+				});
+				JButton[] buttons = { button };
+				JOptionPane.showOptionDialog(null, label, "WIN", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+                //JOptionPane.showMessageDialog(null, "흑돌 승리", "흑돌 승리", JOptionPane.QUESTION_MESSAGE);
                 //dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "백돌 승리", "백돌 승리", JOptionPane.QUESTION_MESSAGE);
+            	UIManager UI = new UIManager();
+				UI.put("OptionPane.background", Color.white);
+				UI.put("Panel.background", Color.white);
+				JLabel label = new JLabel("백돌 승리");
+				label.setBackground(Color.WHITE);
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+				JButton button = new JButton("확인");
+				button.setForeground(Color.WHITE);
+				button.setBackground(Main.THEMECOLOR);
+				button.setBorderPainted(false);
+				button.addActionListener(new ActionListener() {
+				   @Override
+				   public void actionPerformed(ActionEvent actionEvent) {
+				       JOptionPane.getRootFrame().dispose();
+				   }
+				});
+				JButton[] buttons = { button };
+				JOptionPane.showOptionDialog(null, label, "WIN", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+                //JOptionPane.showMessageDialog(null, "백돌 승리", "백돌 승리", JOptionPane.QUESTION_MESSAGE);
                 //dispose();
             }
 
@@ -101,10 +141,48 @@ public class MiniGamePanel extends JPanel {
         }
         if (count == 5) {
             if (e.state.equals("B")) {
-                JOptionPane.showMessageDialog(null, "흑돌 승리", "흑돌 승리", JOptionPane.QUESTION_MESSAGE);
+            	UIManager UI = new UIManager();
+				UI.put("OptionPane.background", Color.white);
+				UI.put("Panel.background", Color.white);
+				JLabel label = new JLabel("흑돌 승리");
+				label.setBackground(Color.WHITE);
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+				JButton button = new JButton("확인");
+				button.setForeground(Color.WHITE);
+				button.setBackground(Main.THEMECOLOR);
+				button.setBorderPainted(false);
+				button.addActionListener(new ActionListener() {
+				   @Override
+				   public void actionPerformed(ActionEvent actionEvent) {
+				       JOptionPane.getRootFrame().dispose();
+				   }
+				});
+				JButton[] buttons = { button };
+				JOptionPane.showOptionDialog(null, label, "WIN", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+                //JOptionPane.showMessageDialog(null, "흑돌 승리", "흑돌 승리", JOptionPane.QUESTION_MESSAGE);
                 //dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "백돌 승리", "백돌 승리", JOptionPane.QUESTION_MESSAGE);
+            	UIManager UI = new UIManager();
+				UI.put("OptionPane.background", Color.white);
+				UI.put("Panel.background", Color.white);
+				JLabel label = new JLabel("백돌 승리");
+				label.setBackground(Color.WHITE);
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+				JButton button = new JButton("확인");
+				button.setForeground(Color.WHITE);
+				button.setBackground(Main.THEMECOLOR);
+				button.setBorderPainted(false);
+				button.addActionListener(new ActionListener() {
+				   @Override
+				   public void actionPerformed(ActionEvent actionEvent) {
+				       JOptionPane.getRootFrame().dispose();
+				   }
+				});
+				JButton[] buttons = { button };
+				JOptionPane.showOptionDialog(null, label, "WIN", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+                //JOptionPane.showMessageDialog(null, "백돌 승리", "백돌 승리", JOptionPane.QUESTION_MESSAGE);
                 //dispose();
             }
         }
@@ -126,10 +204,48 @@ public class MiniGamePanel extends JPanel {
         }
         if (count == 5) {
             if (e.state.equals("B")) {
-                JOptionPane.showMessageDialog(null, "흑돌 승리", "흑돌 승리", JOptionPane.QUESTION_MESSAGE);
+            	UIManager UI = new UIManager();
+				UI.put("OptionPane.background", Color.white);
+				UI.put("Panel.background", Color.white);
+				JLabel label = new JLabel("흑돌 승리");
+				label.setBackground(Color.WHITE);
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+				JButton button = new JButton("확인");
+				button.setForeground(Color.WHITE);
+				button.setBackground(Main.THEMECOLOR);
+				button.setBorderPainted(false);
+				button.addActionListener(new ActionListener() {
+				   @Override
+				   public void actionPerformed(ActionEvent actionEvent) {
+				       JOptionPane.getRootFrame().dispose();
+				   }
+				});
+				JButton[] buttons = { button };
+				JOptionPane.showOptionDialog(null, label, "WIN", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+                //JOptionPane.showMessageDialog(null, "흑돌 승리", "흑돌 승리", JOptionPane.QUESTION_MESSAGE);
                 //dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "백돌 승리", "백돌 승리", JOptionPane.QUESTION_MESSAGE);
+            	UIManager UI = new UIManager();
+				UI.put("OptionPane.background", Color.white);
+				UI.put("Panel.background", Color.white);
+				JLabel label = new JLabel("백돌 승리");
+				label.setBackground(Color.WHITE);
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+				JButton button = new JButton("확인");
+				button.setForeground(Color.WHITE);
+				button.setBackground(Main.THEMECOLOR);
+				button.setBorderPainted(false);
+				button.addActionListener(new ActionListener() {
+				   @Override
+				   public void actionPerformed(ActionEvent actionEvent) {
+				       JOptionPane.getRootFrame().dispose();
+				   }
+				});
+				JButton[] buttons = { button };
+				JOptionPane.showOptionDialog(null, label, "WIN", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+                //JOptionPane.showMessageDialog(null, "백돌 승리", "백돌 승리", JOptionPane.QUESTION_MESSAGE);
                 //dispose();
             }
         }
@@ -152,10 +268,48 @@ public class MiniGamePanel extends JPanel {
 
         if (count == 5) {
             if (e.state.equals("B")) {
-                JOptionPane.showMessageDialog(null, "흑돌 승리", "흑돌 승리", JOptionPane.QUESTION_MESSAGE);
+            	UIManager UI = new UIManager();
+				UI.put("OptionPane.background", Color.white);
+				UI.put("Panel.background", Color.white);
+				JLabel label = new JLabel("흑돌 승리");
+				label.setBackground(Color.WHITE);
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+				JButton button = new JButton("확인");
+				button.setForeground(Color.WHITE);
+				button.setBackground(Main.THEMECOLOR);
+				button.setBorderPainted(false);
+				button.addActionListener(new ActionListener() {
+				   @Override
+				   public void actionPerformed(ActionEvent actionEvent) {
+				       JOptionPane.getRootFrame().dispose();
+				   }
+				});
+				JButton[] buttons = { button };
+				JOptionPane.showOptionDialog(null, label, "WIN", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+               
                 //dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "백돌 승리", "백돌 승리", JOptionPane.QUESTION_MESSAGE);
+            	UIManager UI = new UIManager();
+				UI.put("OptionPane.background", Color.white);
+				UI.put("Panel.background", Color.white);
+				JLabel label = new JLabel("백돌 승리");
+				label.setBackground(Color.WHITE);
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+				label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+				JButton button = new JButton("확인");
+				button.setForeground(Color.WHITE);
+				button.setBackground(Main.THEMECOLOR);
+				button.setBorderPainted(false);
+				button.addActionListener(new ActionListener() {
+				   @Override
+				   public void actionPerformed(ActionEvent actionEvent) {
+				       JOptionPane.getRootFrame().dispose();
+				   }
+				});
+				JButton[] buttons = { button };
+				JOptionPane.showOptionDialog(null, label, "WIN", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+                
                 //dispose();
             }
 

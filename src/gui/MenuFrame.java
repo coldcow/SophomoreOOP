@@ -97,6 +97,7 @@ public class MenuFrame extends JFrame {
 
 		DrinkOrderPanel dp = new DrinkOrderPanel();
 		BoardGameOrderPanel bp = new BoardGameOrderPanel();
+		MiniGamePanel mp = new MiniGamePanel();
 
 		JPanel buttonList = new JPanel(new GridLayout(4, 0));
 		contentPane.add(buttonList, BorderLayout.EAST);
@@ -209,7 +210,21 @@ public class MenuFrame extends JFrame {
 		minigameButton.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 24));
 		minigameButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setButtonColor(minigameButton);
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							setButtonColor(minigameButton);
+							newpanel.removeAll();
+							mp.setVisible(true);
+							newpanel.add(mp, BorderLayout.CENTER);
+							newpanel.revalidate();
+							newpanel.repaint();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				
 			}
 		});
 //		btnNewButton_3.setBorderPainted(false);

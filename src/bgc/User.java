@@ -22,7 +22,7 @@ public class User implements Manageable {
 	@Override
 	public void write(File file) {
 		try {
-			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false));
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
 			for (User user : Cafe.userManager.managees) {
 				if (file.isFile() && file.canWrite()) {
 
