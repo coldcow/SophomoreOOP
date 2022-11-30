@@ -101,7 +101,7 @@ public class MenuFrame extends JFrame {
 		MiniGamePanel mp = new MiniGamePanel();
 		RecommendPanel rp = new RecommendPanel();
 
-		JPanel buttonList = new JPanel(new GridLayout(5, 0));
+		JPanel buttonList = new JPanel(new GridLayout(4, 0));
 		contentPane.add(buttonList, BorderLayout.EAST);
 		buttonList.setPreferredSize(new Dimension(400, 900));
 		buttonList.setBackground(Color.WHITE);
@@ -109,7 +109,7 @@ public class MenuFrame extends JFrame {
 
 		JPanel p = new JPanel();
 		p.setBackground(new Color(255,255,255));
-		p.setBorder(BorderFactory.createEmptyBorder(33, 0 , 33, 0));
+		p.setBorder(BorderFactory.createEmptyBorder(62, 0 , 63, 0));
 
 		bgmButton = new JButton("보드게임");
 		bgmButton.setPreferredSize(new Dimension(300, 100));
@@ -141,7 +141,7 @@ public class MenuFrame extends JFrame {
 
 		JPanel p2 = new JPanel();
 		p2.setBackground(new Color(255,255,255));
-		p2.setBorder(BorderFactory.createEmptyBorder(33, 0 , 33, 0));
+		p2.setBorder(BorderFactory.createEmptyBorder(62, 0 , 63, 0));
 		
 		drinkButton = new JButton("음료");
 		drinkButton.setPreferredSize(new Dimension(300, 100));
@@ -171,6 +171,7 @@ public class MenuFrame extends JFrame {
 		p2.add(drinkButton);
 		buttonList.add(p2);
 
+		/*
 		JPanel p5 = new JPanel();
 		p5.setBackground(new Color(255,255,255));
 		p5.setBorder(BorderFactory.createEmptyBorder(33, 0 , 33, 0));
@@ -202,10 +203,11 @@ public class MenuFrame extends JFrame {
 		rmdButton.setFocusPainted(true);
 		p5.add(rmdButton);
 		buttonList.add(p5);
+		*/
 		
 		JPanel p3 = new JPanel();
 		p3.setBackground(new Color(255,255,255));
-		p3.setBorder(BorderFactory.createEmptyBorder(33, 0 , 33, 0));
+		p3.setBorder(BorderFactory.createEmptyBorder(62, 0 , 63, 0));
 		
 		checkOutButton = new JButton("결제");
 		checkOutButton.setPreferredSize(new Dimension(300, 100));
@@ -235,7 +237,7 @@ public class MenuFrame extends JFrame {
 
 		JPanel p4 = new JPanel();
 		p4.setBackground(new Color(255,255,255));
-		p4.setBorder(BorderFactory.createEmptyBorder(33, 0 , 33, 0));
+		p4.setBorder(BorderFactory.createEmptyBorder(62, 0 , 63, 0));
 		
 		minigameButton = new JButton("미니게임");
 		minigameButton.setPreferredSize(new Dimension(300, 100));
