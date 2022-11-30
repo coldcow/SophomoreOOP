@@ -53,6 +53,7 @@ public class LoginFrame extends JFrame {
 		// setSize(400, 600);
 		setBounds(100, 100, 821, 536);
 		setLocationRelativeTo(null);
+		setTitle("그린버튼 로그인 시스템");
 		contentPane = new JPanel(); // {
 
 //            public void paintComponent(Graphics g) {
@@ -227,7 +228,7 @@ public class LoginFrame extends JFrame {
 					   }
 					});
 					JButton[] buttons = { button };
-					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					JOptionPane.showOptionDialog(null, label, "메시지", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
 					
 					//JOptionPane.showMessageDialog(null, label, "ALERT", JOptionPane.WARNING_MESSAGE);
 					// JOptionPane.showMessageDialog(null, "로그인에 성공하셨습니다.");
@@ -244,7 +245,26 @@ public class LoginFrame extends JFrame {
 						}
 					});
 				} else {
-					JOptionPane.showMessageDialog(null, "로그인 실패.");
+					UIManager UI = new UIManager();
+					UI.put("OptionPane.background", Color.white);
+					UI.put("Panel.background", Color.white);
+					JLabel label = new JLabel("로그인 실패.");
+					label.setBackground(Color.WHITE);
+					label.setHorizontalAlignment(SwingConstants.CENTER);
+					label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+					JButton button = new JButton("확인");
+					button.setForeground(Color.WHITE);
+					button.setBackground(Main.THEMECOLOR);
+					button.setBorderPainted(false);
+					button.addActionListener(new ActionListener() {
+					   @Override
+					   public void actionPerformed(ActionEvent actionEvent) {
+					       JOptionPane.getRootFrame().dispose();
+					   }
+					});
+					JButton[] buttons = { button };
+					JOptionPane.showOptionDialog(null, label, "메시지", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					//JOptionPane.showMessageDialog(null, "로그인 실패.");
 				}
 			}
 		});

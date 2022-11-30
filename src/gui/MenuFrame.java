@@ -24,7 +24,7 @@ public class MenuFrame extends JFrame {
 		setForeground(Color.WHITE);
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTitle("주문 선택");
+		setTitle("그린버튼 보드게임카페 프로그램");
 		setSize(1600, 900);
 		setLocationRelativeTo(null);
 

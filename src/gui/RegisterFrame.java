@@ -37,6 +37,7 @@ public class RegisterFrame extends JFrame {
         setSize(365, 390);
         setLocation(1150,365);
         setLocationRelativeTo(null);
+        setTitle("그린버튼 회원가입 시스템");
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -124,7 +125,7 @@ public class RegisterFrame extends JFrame {
 				   }
 				});
 				JButton[] buttons = { button };
-				JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+				JOptionPane.showOptionDialog(null, label, "메시지", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
                 dispose();
             }
         });

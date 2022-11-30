@@ -68,6 +68,7 @@ public class PaymentFrame extends JFrame {
 
 		setBounds(100, 100, 320, 560);
 		setLocationRelativeTo(null);
+		setTitle("그린버튼 결제 시스템");
 		getContentPane().setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -105,7 +106,7 @@ public class PaymentFrame extends JFrame {
 				   }
 				});
 				JButton[] buttons = { button };
-				JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+				JOptionPane.showOptionDialog(null, label, "메시지", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
 				
 				dispose();
 				EventQueue.invokeLater(new Runnable() {
@@ -150,7 +151,7 @@ public class PaymentFrame extends JFrame {
 					   }
 					});
 					JButton[] buttons = { button };
-					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					JOptionPane.showOptionDialog(null, label, "메시지", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
 					
 				} else {
 					// new PointSelection();

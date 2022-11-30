@@ -37,6 +37,7 @@ public class RoomSelectionFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setLocationRelativeTo(null);
+		setTitle("그린버튼 방선택 시스템");
 		getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("원하는 방을 선택하세요");
@@ -284,7 +285,7 @@ public class RoomSelectionFrame extends JFrame {
 					   }
 					});
 					JButton[] buttons = { button };
-					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					JOptionPane.showOptionDialog(null, label, "메시지", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
 					
 					return;
 				}

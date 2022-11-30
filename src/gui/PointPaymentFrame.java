@@ -29,6 +29,7 @@ public class PointPaymentFrame extends JFrame {
 	private void initialize() {
 		setBounds(100, 100, 320, 345);
 		setLocationRelativeTo(null);
+		setTitle("그린버튼 포인트적립 시스템");
 		getContentPane().setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -126,7 +127,7 @@ public class PointPaymentFrame extends JFrame {
 					   }
 					});
 					JButton[] buttons = { button };
-					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					JOptionPane.showOptionDialog(null, label, "메시지", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
 					
 					// dispose();
 				} else {
@@ -151,7 +152,7 @@ public class PointPaymentFrame extends JFrame {
 					   }
 					});
 					JButton[] buttons = { button };
-					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					JOptionPane.showOptionDialog(null, label, "메시지", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
 					
 					dispose();
 					EventQueue.invokeLater(new Runnable() {

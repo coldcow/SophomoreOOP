@@ -40,19 +40,18 @@ public class BoardGameOrderPanel extends JPanel {
 		tappedPane.setBackground(Main.THEMECOLOR);
 		tappedPane.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 16));
 
-		String[] tabLabels = {"전체", "전략", "추리", "순발력", "카드"};
-		//ArrayList<String> tabLabels = new ArrayList<>();
+		String[] tabLabels = { "전체", "전략", "추리", "순발력", "카드" };
+		// ArrayList<String> tabLabels = new ArrayList<>();
 
-		/*for (BoardGame boardGame : Cafe.boardGameManager.managees) {
-			String[] boardGameGenres = boardGame.genre.split(",");
-
-			for (String boardGameGenre : boardGameGenres) {
-				if (tabLabels.contains(boardGameGenre))
-					continue;
-
-				tabLabels.add(boardGameGenre);
-			}
-		}*/
+		/*
+		 * for (BoardGame boardGame : Cafe.boardGameManager.managees) { String[]
+		 * boardGameGenres = boardGame.genre.split(",");
+		 * 
+		 * for (String boardGameGenre : boardGameGenres) { if
+		 * (tabLabels.contains(boardGameGenre)) continue;
+		 * 
+		 * tabLabels.add(boardGameGenre); } }
+		 */
 
 		for (String tabLabel : tabLabels) {
 			panel = new JPanel(new BorderLayout());
