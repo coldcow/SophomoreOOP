@@ -9,8 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 
 import bgc.Cafe;
+import bgc.Main;
 
 import java.awt.Font;
 import javax.swing.JButton;
@@ -38,7 +40,7 @@ public class RoomSelectionFrame extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("원하는 방을 선택하세요");
 		lblNewLabel.setForeground(new Color(105, 170, 70));
-		lblNewLabel.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 27));
+		lblNewLabel.setFont(new Font("나눔고딕 ExtraBold", Font.BOLD, 27));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(12, 10, 781, 77);
 		getContentPane().add(lblNewLabel);
@@ -263,7 +265,26 @@ public class RoomSelectionFrame extends JFrame {
 		btnNewButton_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (roomNumber == 0) {
-					JOptionPane.showMessageDialog(null, "방을 선택해주세요.");
+					UIManager UI = new UIManager();
+					UI.put("OptionPane.background", Color.white);
+					UI.put("Panel.background", Color.white);
+					JLabel label = new JLabel("방을 선택해주세요.");
+					label.setBackground(Color.WHITE);
+					label.setHorizontalAlignment(SwingConstants.CENTER);
+					label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+					JButton button = new JButton("확인");
+					button.setForeground(Color.WHITE);
+					button.setBackground(Main.THEMECOLOR);
+					button.setBorderPainted(false);
+					button.addActionListener(new ActionListener() {
+					   @Override
+					   public void actionPerformed(ActionEvent actionEvent) {
+					       JOptionPane.getRootFrame().dispose();
+					   }
+					});
+					JButton[] buttons = { button };
+					JOptionPane.showOptionDialog(null, label, "ALERT", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+					
 					return;
 				}
 

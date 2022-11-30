@@ -195,7 +195,7 @@ public class DrinkOrderPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent exception) {
 				for (String string : orderList.getText().split("\n")) {
-					Cafe.order.orderedName.add(string.split("\t")[0]);
+					Cafe.order.orderedName.add(string.split("\t")[1]);
 					setVisible(false);
 					orderList.setText(null);
 				}

@@ -40,7 +40,8 @@ public class MenuFrame extends JFrame {
 		information.setPreferredSize(new Dimension(1200, 100));
 		information.setBackground(Color.WHITE);
 
-		JLabel lblNewLabel = new JLabel("ID: " + Cafe.user.identifier);
+		JLabel lblNewLabel = new JLabel("   ID: " + Cafe.user.identifier);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10));
 		information.add(lblNewLabel);
 		lblNewLabel.setForeground(Main.THEMECOLOR);
@@ -48,6 +49,7 @@ public class MenuFrame extends JFrame {
 		lblNewLabel.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 24));
 
 		JLabel lblNewLabel_1 = new JLabel("남은 시간: ");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_1.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10));
 		information.add(lblNewLabel_1);
 	       Timer timer = new Timer();
@@ -71,6 +73,7 @@ public class MenuFrame extends JFrame {
 		lblNewLabel_1.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 24));
 
 		JLabel lblNewLabel_2 = new JLabel(String.format("%d번 방", Cafe.room.number));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10));
 		information.add(lblNewLabel_2);
 		lblNewLabel_2.setForeground(Main.THEMECOLOR);
