@@ -22,6 +22,7 @@ public class MenuFrame extends JFrame {
 	int roomTime = Cafe.time;
 	
 	public MenuFrame() {
+		setResizable(false);
 		setForeground(Color.WHITE);
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -99,7 +100,7 @@ public class MenuFrame extends JFrame {
 		DrinkOrderPanel dp = new DrinkOrderPanel();
 		BoardGameOrderPanel bp = new BoardGameOrderPanel();
 		MiniGamePanel mp = new MiniGamePanel();
-		RecommendPanel rp = new RecommendPanel();
+		//RecommendPanel rp = new RecommendPanel();
 
 		JPanel buttonList = new JPanel(new GridLayout(4, 0));
 		contentPane.add(buttonList, BorderLayout.EAST);
@@ -305,13 +306,14 @@ public class MenuFrame extends JFrame {
 			btn.setBackground(Main.THEMECOLOR);
 			this.colorFocus = btn.getActionCommand();
 			break;
-		case "추천":
+		/*case "추천":
 			rmdButton.setBackground(Color.WHITE);
 			rmdButton.setForeground(Color.BLACK);
 			btn.setForeground(Color.WHITE);
 			btn.setBackground(Main.THEMECOLOR);
 			this.colorFocus = btn.getActionCommand();
 			break;
+			*/
 		}
 
 	}

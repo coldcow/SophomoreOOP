@@ -33,6 +33,7 @@ public class RegisterFrame extends JFrame {
     private JTextField tfAge;
     
     public RegisterFrame() {
+    	setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(365, 390);
         setLocation(1150,365);

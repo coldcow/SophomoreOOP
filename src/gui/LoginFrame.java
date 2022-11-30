@@ -51,6 +51,7 @@ public class LoginFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// setSize(400, 300);
 		// setSize(400, 600);
+		setResizable(false);
 		setBounds(100, 100, 821, 536);
 		setLocationRelativeTo(null);
 		setTitle("그린버튼 로그인 시스템");

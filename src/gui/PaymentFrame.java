@@ -65,7 +65,7 @@ public class PaymentFrame extends JFrame {
 		Payment.giveMileage(user, cost);
 
 		// frame = new JFrame();
-
+		setResizable(false);
 		setBounds(100, 100, 320, 560);
 		setLocationRelativeTo(null);
 		setTitle("그린버튼 결제 시스템");

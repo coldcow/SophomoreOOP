@@ -27,6 +27,7 @@ public class PointPaymentFrame extends JFrame {
 	}
 
 	private void initialize() {
+		setResizable(false);
 		setBounds(100, 100, 320, 345);
 		setLocationRelativeTo(null);
 		setTitle("그린버튼 포인트적립");

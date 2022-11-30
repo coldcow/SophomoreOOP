@@ -13,11 +13,13 @@ import javax.swing.UIManager;
 
 import bgc.Cafe;
 import bgc.Main;
+import bgc.Room;
 
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.awt.event.ActionEvent;
 
 public class RoomSelectionFrame extends JFrame {
@@ -31,32 +33,34 @@ public class RoomSelectionFrame extends JFrame {
 	JButton roomBtn8 = new JButton();
 	int roomNumber = 0;
 	int roomTime;
-
+	
+	
 	public RoomSelectionFrame() {
+		setResizable(false);
 		setBounds(100, 100, 821, 536);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setLocationRelativeTo(null);
 		setTitle("그린버튼 방선택 시스템");
 		getContentPane().setLayout(null);
-
+		
 		JLabel lblNewLabel = new JLabel("원하는 방을 선택하세요");
 		lblNewLabel.setForeground(new Color(105, 170, 70));
 		lblNewLabel.setFont(new Font("나눔고딕 ExtraBold", Font.BOLD, 27));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(12, 10, 781, 77);
 		getContentPane().add(lblNewLabel);
-
+		
 		JLabel frameDeco1 = new JLabel("");
 		frameDeco1.setIcon(new ImageIcon("img/greenery.png"));
 		frameDeco1.setBounds(12, 81, 781, 2);
 		getContentPane().add(frameDeco1);
-
+		
 		JLabel frameDeco2 = new JLabel("");
 		frameDeco2.setIcon(new ImageIcon("img/greenery.png"));
 		frameDeco2.setBounds(73, 338, 671, 2);
 		getContentPane().add(frameDeco2);
-
+		
 		JButton roomBtn1 = new JButton("1");
 		roomBtn1.setFont(new Font("나눔고딕", Font.BOLD, 16));
 		roomBtn1.setForeground(new Color(0, 0, 0));
@@ -66,6 +70,10 @@ public class RoomSelectionFrame extends JFrame {
 		roomBtn1.addActionListener(event -> {
 			setButtonEvent(roomBtn1);
 		});
+		if(Cafe.roomManager.find(""+1).availability == false) {
+			roomBtn1.setForeground(Color.WHITE);
+			roomBtn1.setBackground(Color.DARK_GRAY);
+		}
 		getContentPane().add(roomBtn1);
 
 		JButton roomBtn2 = new JButton("2");
@@ -77,6 +85,10 @@ public class RoomSelectionFrame extends JFrame {
 		roomBtn2.addActionListener(event -> {
 			setButtonEvent(roomBtn2);
 		});
+		if(Cafe.roomManager.find(""+2).availability == false) {
+			roomBtn2.setForeground(Color.WHITE);
+			roomBtn2.setBackground(Color.DARK_GRAY);
+		}
 		getContentPane().add(roomBtn2);
 
 		JButton roomBtn3 = new JButton("3");
@@ -88,6 +100,10 @@ public class RoomSelectionFrame extends JFrame {
 		roomBtn3.addActionListener(event -> {
 			setButtonEvent(roomBtn3);
 		});
+		if(Cafe.roomManager.find(""+3).availability == false) {
+			roomBtn3.setForeground(Color.WHITE);
+			roomBtn3.setBackground(Color.DARK_GRAY);
+		}
 		getContentPane().add(roomBtn3);
 
 		JButton roomBtn4 = new JButton("4");
@@ -99,6 +115,10 @@ public class RoomSelectionFrame extends JFrame {
 		roomBtn4.addActionListener(event -> {
 			setButtonEvent(roomBtn4);
 		});
+		if(Cafe.roomManager.find(""+4).availability == false) {
+			roomBtn4.setForeground(Color.WHITE);
+			roomBtn4.setBackground(Color.DARK_GRAY);
+		}
 		getContentPane().add(roomBtn4);
 
 		JLabel lblNewLabel_1 = new JLabel("1번방");
@@ -134,6 +154,10 @@ public class RoomSelectionFrame extends JFrame {
 		roomBtn5.addActionListener(event -> {
 			setButtonEvent(roomBtn5);
 		});
+		if(Cafe.roomManager.find(""+5).availability == false) {
+			roomBtn5.setForeground(Color.WHITE);
+			roomBtn5.setBackground(Color.DARK_GRAY);
+		}
 		getContentPane().add(roomBtn5);
 
 		JButton roomBtn6 = new JButton("6");
@@ -145,6 +169,10 @@ public class RoomSelectionFrame extends JFrame {
 		roomBtn6.addActionListener(event -> {
 			setButtonEvent(roomBtn6);
 		});
+		if(Cafe.roomManager.find(""+6).availability == false) {
+			roomBtn6.setForeground(Color.WHITE);
+			roomBtn6.setBackground(Color.DARK_GRAY);
+		}
 		getContentPane().add(roomBtn6);
 
 		JButton roomBtn7 = new JButton("7");
@@ -165,6 +193,10 @@ public class RoomSelectionFrame extends JFrame {
 //			}
 			setButtonEvent(roomBtn7);
 		});
+		if(Cafe.roomManager.find(""+7).availability == false) {
+			roomBtn7.setForeground(Color.WHITE);
+			roomBtn7.setBackground(Color.DARK_GRAY);
+		}
 		getContentPane().add(roomBtn7);
 
 		JButton roomBtn8 = new JButton("8");
@@ -176,6 +208,10 @@ public class RoomSelectionFrame extends JFrame {
 		roomBtn8.addActionListener(event -> {
 			setButtonEvent(roomBtn8);
 		});
+		if(Cafe.roomManager.find(""+8).availability == false) {
+			roomBtn8.setForeground(Color.WHITE);
+			roomBtn8.setBackground(Color.DARK_GRAY);
+		}
 		getContentPane().add(roomBtn8);
 
 		JLabel lblNewLabel_1_4 = new JLabel("5번방");
@@ -306,6 +342,28 @@ public class RoomSelectionFrame extends JFrame {
 	
 	
 	private void setButtonEvent(JButton btn) {
+		if(Cafe.roomManager.find(btn.getActionCommand()).availability == false) {
+			UIManager UI = new UIManager();
+			UI.put("OptionPane.background", Color.white);
+			UI.put("Panel.background", Color.white);
+			JLabel label = new JLabel("이미 사용중인 방입니다. 다른 방을 선택해주세요.");
+			label.setBackground(Color.WHITE);
+			label.setHorizontalAlignment(SwingConstants.CENTER);
+			label.setFont(new Font("나눔고딕", Font.PLAIN, 14));
+			JButton button = new JButton("확인");
+			button.setForeground(Color.WHITE);
+			button.setBackground(Main.THEMECOLOR);
+			button.setBorderPainted(false);
+			button.addActionListener(new ActionListener() {
+			   @Override
+			   public void actionPerformed(ActionEvent actionEvent) {
+			       JOptionPane.getRootFrame().dispose();
+			   }
+			});
+			JButton[] buttons = { button };
+			JOptionPane.showOptionDialog(null, label, "메시지", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(), buttons, buttons[0]);
+			return;
+		}
 		if (btn.getBackground().equals(Color.WHITE)) {
 			roomNumber = Integer.parseInt(btn.getActionCommand());
 			btn.setForeground(Color.WHITE);
