@@ -34,7 +34,8 @@ public class BoardGame implements Manageable {
 
     @Override
     public boolean matches(String keyword) {
-        return (name.contains(keyword)
+        return ("전체".equals(keyword)
+        		|| name.contains(keyword)
                 || level.contains(keyword)
                 || genre.contains(keyword)
                 || numberOfPlayer.contains(keyword)

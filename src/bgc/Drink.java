@@ -28,7 +28,10 @@ public class Drink implements Manageable {
 
 	@Override
 	public boolean matches(String keyword) {
-		return (type.contains(keyword) || name.contains(keyword) || (price + "").contains(keyword));
+		return ("전체".equals(keyword) 
+				|| type.contains(keyword) 
+				|| name.contains(keyword) 
+				|| (price + "").contains(keyword));
 	}
 
 	public String[] getTexts() {

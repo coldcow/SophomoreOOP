@@ -64,7 +64,8 @@ public class DrinkOrderPanel extends JPanel {
 		tappedPane.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 16));
 
 		ArrayList<String> tabLabels = new ArrayList<>();
-
+		tabLabels.add("전체");
+		
 		for (Drink drink : Cafe.drinkManager.managees) {
 			String drinkType = drink.type;
 
