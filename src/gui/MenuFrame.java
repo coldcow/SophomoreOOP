@@ -18,6 +18,7 @@ public class MenuFrame extends JFrame {
 	JButton minigameButton = new JButton();
 	JButton checkOutButton = new JButton();
 	JButton drinkButton = new JButton();
+	JButton rmdButton = new JButton();
 	int roomTime = Cafe.time;
 	
 	public MenuFrame() {
@@ -98,8 +99,9 @@ public class MenuFrame extends JFrame {
 		DrinkOrderPanel dp = new DrinkOrderPanel();
 		BoardGameOrderPanel bp = new BoardGameOrderPanel();
 		MiniGamePanel mp = new MiniGamePanel();
+		RecommendPanel rp = new RecommendPanel();
 
-		JPanel buttonList = new JPanel(new GridLayout(4, 0));
+		JPanel buttonList = new JPanel(new GridLayout(5, 0));
 		contentPane.add(buttonList, BorderLayout.EAST);
 		buttonList.setPreferredSize(new Dimension(400, 900));
 		buttonList.setBackground(Color.WHITE);
@@ -107,7 +109,7 @@ public class MenuFrame extends JFrame {
 
 		JPanel p = new JPanel();
 		p.setBackground(new Color(255,255,255));
-		p.setBorder(BorderFactory.createEmptyBorder(62, 0 , 63, 0));
+		p.setBorder(BorderFactory.createEmptyBorder(33, 0 , 33, 0));
 
 		bgmButton = new JButton("보드게임");
 		bgmButton.setPreferredSize(new Dimension(300, 100));
@@ -139,7 +141,7 @@ public class MenuFrame extends JFrame {
 
 		JPanel p2 = new JPanel();
 		p2.setBackground(new Color(255,255,255));
-		p2.setBorder(BorderFactory.createEmptyBorder(62, 0 , 63, 0));
+		p2.setBorder(BorderFactory.createEmptyBorder(33, 0 , 33, 0));
 		
 		drinkButton = new JButton("음료");
 		drinkButton.setPreferredSize(new Dimension(300, 100));
@@ -169,9 +171,41 @@ public class MenuFrame extends JFrame {
 		p2.add(drinkButton);
 		buttonList.add(p2);
 
+		JPanel p5 = new JPanel();
+		p5.setBackground(new Color(255,255,255));
+		p5.setBorder(BorderFactory.createEmptyBorder(33, 0 , 33, 0));
+		
+		rmdButton = new JButton("추천");
+		rmdButton.setPreferredSize(new Dimension(300, 100));
+		rmdButton.setBackground(Color.WHITE);
+		rmdButton.setForeground(Color.BLACK);
+		rmdButton.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 24));
+		rmdButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							setButtonColor(rmdButton);
+							newpanel.removeAll();
+							rp.setVisible(true);
+							newpanel.add(rp, BorderLayout.CENTER);
+							newpanel.revalidate();
+							newpanel.repaint();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+		});
+		//btnNewButton.setBorderPainted(false);
+		rmdButton.setFocusPainted(true);
+		p5.add(rmdButton);
+		buttonList.add(p5);
+		
 		JPanel p3 = new JPanel();
 		p3.setBackground(new Color(255,255,255));
-		p3.setBorder(BorderFactory.createEmptyBorder(62, 0 , 63, 0));
+		p3.setBorder(BorderFactory.createEmptyBorder(33, 0 , 33, 0));
 		
 		checkOutButton = new JButton("결제");
 		checkOutButton.setPreferredSize(new Dimension(300, 100));
@@ -201,7 +235,7 @@ public class MenuFrame extends JFrame {
 
 		JPanel p4 = new JPanel();
 		p4.setBackground(new Color(255,255,255));
-		p4.setBorder(BorderFactory.createEmptyBorder(62, 0 , 63, 0));
+		p4.setBorder(BorderFactory.createEmptyBorder(33, 0 , 33, 0));
 		
 		minigameButton = new JButton("미니게임");
 		minigameButton.setPreferredSize(new Dimension(300, 100));
@@ -265,6 +299,13 @@ public class MenuFrame extends JFrame {
 		case "결제":
 			checkOutButton.setBackground(Color.WHITE);
 			checkOutButton.setForeground(Color.BLACK);
+			btn.setForeground(Color.WHITE);
+			btn.setBackground(Main.THEMECOLOR);
+			this.colorFocus = btn.getActionCommand();
+			break;
+		case "추천":
+			rmdButton.setBackground(Color.WHITE);
+			rmdButton.setForeground(Color.BLACK);
 			btn.setForeground(Color.WHITE);
 			btn.setBackground(Main.THEMECOLOR);
 			this.colorFocus = btn.getActionCommand();
